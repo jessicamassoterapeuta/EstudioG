@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Massoterapia Jessica Oliveira</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+    body {
+      background: #e0e0e0; /* cinza suave */
+      color: #222;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ===== Faixa de alerta ===== */
+    .alert-bar {
+      background: linear-gradient(90deg, #ff4d4d, #ff9999);
+      color: #fff;
+      text-align: center;
+      padding: 10px 20px;
+      font-weight: bold;
+      font-size: 1rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1001;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+
+    }
+
+    /* ===== Navbar ===== */
+    nav {
+      background: rgba(0,0,0,0.7);
+      position: sticky;
+      top: 40px; 
+      width: 100%;
+      z-index: 1000;
+      padding: 15px 0;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 30px;
+      font-weight: bold;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      transition: 0.3s;
+      font-size: 1.05rem;
+    }
+
+    nav ul li a:hover { color: #ffcc00; }
+
+    /* ===== Header ===== */
+    header {
+      width: 100%;
+      padding: 40px 20px 30px 20px; /* altura reduzida */
+      text-align: center;
+      background:
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url("fundo-massoterapia.jpeg") no-repeat center center / cover;
+      color: #fff;
+    }
+
+    header h1 { font-size: 2.5rem; margin-bottom: 12px; font-weight: bold; }
+    header p { font-size: 1.1rem; margin-bottom: 18px; opacity: 0.9; }
+
+    .header-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+
+    .btn {
+      text-decoration: none;
+      padding: 18px 28px; 
+      border-radius: 30px;
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.3s;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      box-shadow: 0 4px 12px rgba(37,211,102,0.5);
+    }
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(37,211,102,0.6);
+    }
+
+    .btn-instagram {
+      background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af);
+      box-shadow: 0 4px 12px rgba(217,30,143,0.5);
+    }
+    .btn-instagram:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(217,30,143,0.6);
+    }
+
+    /* ===== Seção Sobre ===== */
+    .about-section {
+      width: 100%;
+      max-width: 100%;
+      margin: 50px 0;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+      background: #f5f5f5; 
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .about-section:hover { transform: translateY(-5px); }
+
+    .about-section img,
+    .about-section h2,
+    .about-section p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-section img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      display: block;
+      margin: auto;
+    }
+
+    .about-section h2 { font-size: 1.8rem; margin-bottom: 12px; font-weight: bold; color: #222; }
+    .about-section p { font-size: 1rem; line-height: 1.8; color: #333; }
+
+    /* ===== Materiais ===== */
+    .materials {
+      padding: 60px 20px;
+      background: #f0f0f0;
+    }
+
+    .materials h2 { text-align: center; font-size: 2rem; margin-bottom: 15px; font-weight: bold; color: #222; }
+    .materials p { text-align: center; max-width: 680px; margin: 0 auto 40px; font-size: 1rem; color: #333; }
+
+    .materials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .material-card {
+      text-align: center;
+      background: #fff;
+      padding: 12px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .material-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .material-card img { width: 100%; border-radius: 15px; margin-bottom: 12px; }
+    .material-card h3 { font-size: 1.1rem; font-weight: bold; color: #222; }
+
+    /* ===== Seção Contato ===== */
+    .contact-section {
+      width: 100%;
+      padding: 40px 20px;
+      background: #f5f5f5;
+      text-align: center;
+      border-radius: 20px;
+      margin-bottom: 40px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    .contact-section h2 { font-size: 1.8rem; margin-bottom: 15px; font-weight: bold; color: #222; }
+    .contact-section p { font-size: 1rem; margin-bottom: 20px; color: #333; }
+
+    /* ícones estilo antigo, maiores */
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+
+    .contact-icons a {
+      text-decoration: none;
+      font-size: 30px; 
+      width: 60px; 
+      height: 60px; 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      border-radius: 50%;
+      color: #fff;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .contact-icons a.whatsapp { background: #25D366; }
+    .contact-icons a.instagram { background: #C13584; }
+
+    .contact-icons a:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+
+    .contact-section .telefone {
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      display: block;
+      color: #222;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 15px;
+      font-size: 0.9rem;
+      color: #fff;
+      background: #222;
+      border-radius: 15px 15px 0 0;
+    }
+
+    /* ===== Responsivo ===== */
+    @media (max-width: 900px) {
+      .about-section { grid-template-columns: 1fr; text-align: center; }
+      .materials-grid { grid-template-columns: 1fr; }
+      nav ul { flex-direction: column; gap: 15px; }
+      .header-buttons { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Faixa de alerta -->
+  <div class="alert-bar">
+    🔥 Super Oferta! Pacote de Massagem Relaxante com 20% OFF
+  </div>
+
+  <!-- Navbar -->
+  <nav>
+    <ul>
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#materiais">Materiais</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header id="inicio">
+    <h1>Jessica Oliveira</h1>
+    <p>Massoterapeuta Profissional - Relaxamento e Bem-estar</p>
+    
+  </header>
+
+  <!-- Seção Sobre -->
+  <section class="about-section" id="sobre">
+    <div class="about-img">
+      <img src="foto-prima.jpeg" alt="Jessica Oliveira">
+    </div>
+    <div class="about-text">
+      <h2>Sobre Jessica Oliveira</h2>
+      <p>
+        Sou Jessica Oliveira, massoterapeuta profissional, especializada em promover
+        relaxamento, alívio das tensões musculares e bem-estar físico e emocional.
+        Cada sessão é personalizada, utilizando técnicas e materiais de alta qualidade
+        para garantir conforto, eficácia e uma experiência completa.
+      </p>
+    </div>
+  </section>
+
+  <!-- Seção Materiais -->
+  <section class="materials" id="materiais">
+    <h2>Materiais de Qualidade</h2>
+    <p>
+      Utilização de equipamentos modernos, óleos selecionados e técnicas terapêuticas
+      para garantir o máximo conforto e eficiência em cada sessão.
+    </p>
+
+    <div class="materials-grid">
+      <div class="material-card">
+        <img src="foto-prima.jpeg" alt="Pedras terapêuticas">
+        <h3>Pedras Terapêuticas</h3>
+      </div>
+
+      <div class="material-card">
+        <img src="foto-prima1.jpeg" alt="Aparelho de massagem">
+        <h3>Aparelhos Profissionais</h3>
+      </div>
+
+      <div class="material-card">
+        <img src="foto-prima3.jpeg" alt="Óleo de massagem">
+        <h3>Óleos de Alta Qualidade</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Contato -->
+ <!-- Seção Contato -->
+<section class="contact-section" id="contato">
+  <h2>Entre em Contato</h2>
+  <p>Agende sua sessão ou tire suas dúvidas pelas redes ou telefone:</p>
+  <div class="header-buttons">
+      <a class="btn btn-whatsapp"
+         href="https://wa.me/5531993812617?text=Olá! Gostaria de agendar uma sessão de massoterapia."
+         target="_blank">
+        WhatsApp
+      </a>
+      <a class="btn btn-instagram"
+         href="https://www.instagram.com/jessica_massoterapeuta1"
+         target="_blank">
+        Instagram
+      </a>
+    </div>
+  <span class="telefone">Telefone: (31) 99381-2617</span>
+</section>
+
+
+
+  <!-- Footer -->
+  <footer>
+    
+    © 2026 • Massoterapia Jessica Oliveira • Todos os direitos reservados • Criado pelo Estúdio G
+  </footer>
+
+</body>
+</html>
+
