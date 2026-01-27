@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jessica Oliveira | Massoterapia Profissional</title>
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -19,7 +23,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { background: var(--cor-creme); color: var(--cor-texto); font-family: 'Poppins', sans-serif; line-height: 1.6; }
+        body { background: var(--cor-creme); color: var(--cor-texto); font-family: 'Poppins', sans-serif; line-height: 1.6; overflow-x: hidden; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
         .alert-bar {
@@ -45,19 +49,17 @@
 
         .container-largo { max-width: 1300px; margin: auto; padding: 60px 20px; }
 
-        /* Estilo da Seção Sobre (Agora no Topo) */
         .about-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 40px; align-items: center; background: #fff; padding: 50px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
-        .about-img img { width: 100%; border-radius: 4px; box-shadow: 12px 12px 0px var(--cor-dourado); }
+        .about-img img { width: 100%; border-radius: 4px; box-shadow: 12px 12px 0px var(--cor-dourado); display: block; }
         .about-text h2 { font-size: 2.8rem; white-space: nowrap; margin-bottom: 20px; }
 
-        /* Novas Seções de Conteúdo */
-        .info-section { background: #fff; padding: 60px 20px; margin-bottom: 40px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
-        .info-section h2 { font-size: 2.2rem; margin-bottom: 20px; color: var(--cor-dourado); text-align: center; }
         .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .info-section { background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
+        .info-section h2 { font-size: 2.2rem; margin-bottom: 20px; color: var(--cor-dourado); text-align: center; }
         
         .beneficios-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
-        .beneficio-item { background: var(--cor-creme); padding: 20px; border-radius: 10px; border-left: 4px solid var(--cor-dourado); }
-        .beneficio-item i { color: var(--cor-dourado); font-size: 1.5rem; margin-bottom: 10px; display: block; }
+        .beneficio-item { background: #fff; padding: 25px; border-radius: 10px; border-left: 5px solid var(--cor-dourado); }
+        .beneficio-item i { color: var(--cor-dourado); font-size: 1.8rem; margin-bottom: 15px; display: block; }
 
         .materials { background: #f9f7f2; padding: 80px 20px; text-align: center; }
         .materials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; }
@@ -65,11 +67,12 @@
         .material-card img { width: 100%; height: 300px; object-fit: contain; background-color: #fcfcfc; margin-bottom: 15px; }
 
         .btn-container { display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 30px; }
-        .btn { text-decoration: none; padding: 18px 35px; border-radius: 50px; font-weight: bold; display: inline-flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; color: #fff; min-width: 320px; }
+        .btn { text-decoration: none; padding: 18px 35px; border-radius: 50px; font-weight: bold; display: inline-flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; color: #fff; min-width: 320px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .btn-whatsapp { background: var(--cor-whatsapp); }
         .btn-instagram { background: var(--cor-insta-gradient); }
+        .btn:hover { transform: translateY(-3px); }
 
-        .whatsapp-fixo { position: fixed; bottom: 30px; right: 30px; background: var(--cor-whatsapp); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; z-index: 2000; }
+        .whatsapp-fixo { position: fixed; bottom: 30px; right: 30px; background: var(--cor-whatsapp); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; z-index: 2000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
 
         footer { background: #222; color: #fff; text-align: center; padding: 40px 20px; }
 
@@ -106,7 +109,7 @@
     <div class="container-largo" id="sobre">
         <section class="about-grid">
             <div class="about-img">
-                <img src="foto-prima.jpeg" alt="Jessica Oliveira">
+                <img src="foto-prima.jpeg" alt="Jessica Oliveira Massoterapeuta" loading="eager">
             </div>
             <div class="about-text">
                 <h2>O Bem-estar que você merece</h2>
@@ -120,11 +123,11 @@
         <div class="info-grid">
             <div class="info-section">
                 <h2>O que é Massoterapia?</h2>
-                <p>A massoterapia é um conjunto de técnicas manuais milenares aplicadas com o objetivo de promover a saúde, o bem-estar e auxiliar no tratamento de diversas condições físicas e emocionais. Diferente de uma massagem comum, a massoterapia utiliza conhecimentos de anatomia e fisiologia para manipular os tecidos moles do corpo, como músculos e tendões.</p>
+                <p>A massoterapia é um conjunto de técnicas manuais aplicadas para promover saúde e bem-estar. Diferente de uma massagem comum, utiliza conhecimentos de anatomia para manipular músculos e tendões de forma terapêutica.</p>
             </div>
             <div class="info-section">
                 <h2>Para que serve?</h2>
-                <p>Ela serve como uma ferramenta poderosa para a manutenção da saúde. É indicada para quem busca alívio de dores crônicas, recuperação muscular após atividades físicas, correção postural e, principalmente, para o combate aos males do século: o estresse e a ansiedade crônica.</p>
+                <p>Indicada para alívio de dores crônicas, recuperação muscular, correção postural e combate ao estresse e à ansiedade, agindo diretamente no sistema nervoso.</p>
             </div>
         </div>
     </div>
@@ -135,41 +138,41 @@
             <div class="beneficio-item">
                 <i class="fas fa-brain"></i>
                 <h3>Saúde Mental</h3>
-                <p>Reduz drasticamente os níveis de cortisol (hormônio do estresse), auxiliando no tratamento de ansiedade e depressão.</p>
+                <p>Reduz o cortisol, auxiliando no combate ao estresse e ansiedade.</p>
             </div>
             <div class="beneficio-item">
                 <i class="fas fa-hand-holding-heart"></i>
-                <h3>Circulação Sanguínea</h3>
-                <p>Melhora o fluxo sanguíneo e a oxigenação das células, ajudando na eliminação de toxinas do organismo.</p>
+                <h3>Circulação</h3>
+                <p>Melhora o fluxo sanguíneo e ajuda a eliminar toxinas do corpo.</p>
             </div>
             <div class="beneficio-item">
                 <i class="fas fa-bed"></i>
-                <h3>Melhora do Sono</h3>
-                <p>Ao relaxar o sistema nervoso central, a massagem combate a insônia e proporciona um sono muito mais reparador.</p>
+                <h3>Melhor Sono</h3>
+                <p>Relaxa o corpo profundamente, combatendo a insônia.</p>
             </div>
             <div class="beneficio-item">
                 <i class="fas fa-dumbbell"></i>
                 <h3>Alívio de Dores</h3>
-                <p>Eficaz contra dores de cabeça tensionais, dores lombares, torcicolos e tensões musculares causadas pela má postura.</p>
+                <p>Eficaz contra tensões musculares e dores de má postura.</p>
             </div>
         </div>
     </section>
 
     <section class="materials" id="materiais">
-        <h2>Experiência Sensorial</h2>
+        <h2 style="margin-bottom: 40px;">Experiência Sensorial</h2>
         <div class="materials-grid">
             <div class="material-card">
-                <img src="foto-prima.jpeg" alt="Pedras Terapêuticas">
+                <img src="foto-prima.jpeg" alt="Pedras Terapêuticas" loading="lazy">
                 <h3>Pedras Terapêuticas</h3>
                 <p>Calor que penetra profundamente na musculatura.</p>
             </div>
             <div class="material-card">
-                <img src="foto-prima1.jpeg" alt="Aparelhos">
+                <img src="foto-prima1.jpeg" alt="Aparelhos" loading="lazy">
                 <h3>Alta Tecnologia</h3>
                 <p>Aparelhos profissionais para resultados eficazes.</p>
             </div>
             <div class="material-card">
-                <img src="foto-prima3.jpeg" alt="Óleos">
+                <img src="foto-prima3.jpeg" alt="Óleos" loading="lazy">
                 <h3>Óleos Essenciais</h3>
                 <p>Fragrâncias e hidratação de alta performance.</p>
             </div>
@@ -179,16 +182,16 @@
     <section class="container-largo" id="contato" style="text-align: center;">
         <h2>Agende seu Momento</h2>
         <div class="btn-container">
-            <a href="https://wa.me/5531993812617?text=Oi! Tudo bem? Gostaria de saber mais sobre os seus serviços de massagem. Quais técnicas você trabalha e como funciona o agendamento? Fico no aguardo!" target="_blank" class="btn btn-whatsapp">
+            <a href="https://wa.me/5531993812617?text=Oi! Tudo bem? Gostaria de saber mais sobre os seus serviços de massagem." target="_blank" class="btn btn-whatsapp">
                <i class="fa-brands fa-whatsapp"></i> AGENDAR PELO WHATSAPP
             </a>
             <a href="https://www.instagram.com/jessica_massoterapeuta1" target="_blank" class="btn btn-instagram">
-               <i class="fa-brands fa-instagram"></i> VER TRABALHOS NO INSTAGRAM
+               <i class="fa-brands fa-instagram"></i> VER NO INSTAGRAM
             </a>
         </div>
     </section>
 
-    <a href="https://wa.me/5531993812617" class="whatsapp-fixo" target="_blank">
+    <a href="https://wa.me/5531993812617" class="whatsapp-fixo" target="_blank" aria-label="WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
@@ -212,7 +215,12 @@
 
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
-        push(ref(db, 'acessos_jessica'), { horario: new Date().toLocaleString() });
+        
+        // Registrar acesso sem travar o carregamento
+        setTimeout(() => {
+            push(ref(db, 'acessos_jessica'), { horario: new Date().toLocaleString() });
+        }, 2000);
+
         onValue(ref(db, 'config/vagas_jessica'), (snapshot) => {
             const qtd = snapshot.val();
             if (qtd !== null) document.getElementById('contador-cupom').innerText = qtd;
@@ -220,4 +228,3 @@
     </script>
 </body>
 </html>
-
