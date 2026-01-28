@@ -8,124 +8,250 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --cor-creme: #fdfbf7;
+            --cor-fundo: #faf9f6; /* Off-white mais elegante */
+            --cor-branco: #ffffff;
             --cor-texto: #443f38;
-            --cor-dourado: #d4af37;
-            --cor-urgencia: #ff4d4d;
-            --cor-whatsapp: #25d366;
-            --cor-insta-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            --cor-dourado: #c5a028;
+            --cor-verde-whats: #25d366;
+            --sombra-suave: 0 10px 40px -10px rgba(0,0,0,0.08);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { background: var(--cor-creme); color: var(--cor-texto); font-family: 'Poppins', sans-serif; line-height: 1.6; overflow-x: hidden; }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; }
-
-        /* Barra de Alerta Dinâmica */
-        .alert-bar {
-            background: linear-gradient(90deg, var(--cor-urgencia), #ff7676);
-            color: #fff; text-align: center; padding: 8px 15px; font-weight: bold; font-size: 0.8rem;
-            position: fixed; width: 100%; top: 0; z-index: 1100;
+        
+        body { 
+            background: var(--cor-fundo); 
+            color: var(--cor-texto); 
+            font-family: 'Poppins', sans-serif; 
+            line-height: 1.7; 
+            overflow-x: hidden; 
         }
 
-        /* Menu Superior */
+        h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+
+        /* --- MENU SUPERIOR PROFISSIONAL --- */
         nav {
-            background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px);
-            position: sticky; top: 35px; width: 100%; z-index: 1000; padding: 12px 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            position: sticky; 
+            top: 0; 
+            width: 100%; 
+            z-index: 1000; 
+            padding: 15px 0;
             border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
         }
-        nav ul { display: flex; justify-content: center; list-style: none; gap: 20px; overflow-x: auto; padding: 0 15px; }
+
+        nav ul { 
+            display: flex; 
+            justify-content: center; 
+            list-style: none; 
+            gap: 30px; 
+            padding: 0 20px;
+            /* Scroll lateral invisível no mobile */
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch; 
+        }
         nav ul::-webkit-scrollbar { display: none; }
-        nav ul li a { color: var(--cor-texto); text-decoration: none; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Banner de Atendimento (Header Informativo) */
+        nav ul li a { 
+            color: var(--cor-texto); 
+            text-decoration: none; 
+            font-weight: 500; 
+            font-size: 0.85rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover { color: var(--cor-dourado); }
+
+        /* --- BARRA DE INFORMAÇÃO (ATENDIMENTO) --- */
         .header-info {
-            background: #fff; border-bottom: 1px solid #eee; padding: 25px 20px;
+            background: var(--cor-branco);
+            border-bottom: 1px solid #eee;
+            padding: 25px 20px;
         }
+
         .header-info-grid {
-            max-width: 1100px; margin: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px;
+            max-width: 900px; 
+            margin: auto; 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 30px;
         }
-        .info-box { display: flex; align-items: center; gap: 15px; }
-        .info-box i { font-size: 1.5rem; color: var(--cor-dourado); background: var(--cor-creme); padding: 12px; border-radius: 50%; }
-        .info-box div h4 { font-size: 0.8rem; text-transform: uppercase; color: var(--cor-dourado); letter-spacing: 1px; }
-        .info-box div p { font-size: 0.9rem; font-weight: 400; }
 
-        /* Hero Section */
+        .info-box { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+            padding: 10px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .info-box:hover { transform: translateY(-2px); }
+
+        .info-box i { 
+            font-size: 1.4rem; 
+            color: var(--cor-dourado); 
+            background: var(--cor-fundo); 
+            width: 50px; 
+            height: 50px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-radius: 50%; 
+        }
+
+        .info-box div h4 { 
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+            color: #999; 
+            letter-spacing: 1px; 
+            margin-bottom: 2px;
+        }
+        
+        .info-box div p { 
+            font-size: 0.95rem; 
+            font-weight: 600; 
+            color: var(--cor-texto); 
+        }
+
+        /* --- HERO SECTION (TOPO) --- */
         header {
-            width: 100%; padding: 80px 20px; text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("fundo-massoterapia.jpeg") no-repeat center center / cover;
+            width: 100%; 
+            padding: 60px 20px; /* Altura reduzida e equilibrada */
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("fundo-massoterapia.jpeg") no-repeat center center / cover;
             color: #fff;
+            position: relative;
         }
-        header h1 { font-size: 3rem; margin-bottom: 10px; }
-        header p { font-size: 1.1rem; opacity: 0.9; font-weight: 300; }
 
-        .container-largo { max-width: 1000px; margin: auto; padding: 60px 20px; }
+        header h1 { font-size: 3rem; margin-bottom: 5px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        header p { font-size: 1.1rem; font-weight: 300; opacity: 0.95; letter-spacing: 0.5px; }
 
-        /* Seção Minha História */
-        .historia-container {
-            background: #fff; padding: 50px; border-radius: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.04);
-            position: relative; overflow: hidden;
+        /* --- LAYOUT GERAL --- */
+        .container-largo { max-width: 850px; margin: auto; padding: 50px 20px; }
+
+        /* --- SEÇÃO HISTÓRIA --- */
+        .historia-card {
+            background: var(--cor-branco);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: var(--sombra-suave);
+            margin-bottom: 50px;
+            border-top: 4px solid var(--cor-dourado);
         }
-        .historia-container::after {
-            content: "\f10e"; font-family: "Font Awesome 6 Free"; font-weight: 900;
-            position: absolute; bottom: -20px; right: 20px; font-size: 10rem; color: rgba(212, 175, 55, 0.05);
+
+        .historia-card h2 { text-align: center; margin-bottom: 30px; font-size: 2.2rem; color: var(--cor-dourado); }
+        .historia-card p { margin-bottom: 20px; color: #555; text-align: justify; font-size: 1rem; }
+
+        .destaque-box {
+            background: #fdfbf7;
+            padding: 20px;
+            border-left: 4px solid var(--cor-dourado);
+            border-radius: 0 10px 10px 0;
+            margin-top: 30px;
+            font-style: italic;
+            color: #333;
+            font-weight: 500;
         }
-        .historia-container h2 { font-size: 2.2rem; color: var(--cor-dourado); margin-bottom: 25px; text-align: center; }
-        .historia-container p { margin-bottom: 20px; color: #555; text-align: justify; font-size: 1rem; line-height: 1.8; }
-        .realizacao-badge { display: inline-block; background: var(--cor-creme); padding: 10px 20px; border-radius: 50px; color: var(--cor-dourado); font-weight: 600; font-size: 0.9rem; margin-top: 10px; }
 
-        /* Botões de Ação */
-        .btn-container { display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 40px; }
-        .btn { text-decoration: none; padding: 20px 40px; border-radius: 50px; font-weight: bold; color: #fff; width: 100%; max-width: 400px; text-align: center; transition: 0.4s; font-size: 1rem; }
-        .btn-whatsapp { background: var(--cor-whatsapp); box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2); }
-        .btn-instagram { background: var(--cor-insta-gradient); }
-        .btn:hover { transform: translateY(-5px); filter: brightness(1.1); }
+        /* --- BOTÕES --- */
+        .btn-container { display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 30px; }
+        
+        .btn { 
+            text-decoration: none; 
+            padding: 18px 35px; 
+            border-radius: 50px; 
+            font-weight: 600; 
+            color: #fff; 
+            width: 100%; 
+            max-width: 350px; 
+            text-align: center; 
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
 
-        .whatsapp-fixo { position: fixed; bottom: 30px; right: 30px; background: var(--cor-whatsapp); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; z-index: 2000; box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+        .btn-whatsapp { 
+            background: var(--cor-verde-whats); 
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25); 
+        }
+        
+        .btn-instagram { 
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+            box-shadow: 0 8px 20px rgba(220, 39, 67, 0.25); 
+        }
 
-        footer { background: #1a1a1a; color: #fff; text-align: center; padding: 50px 20px; }
+        .btn:hover { transform: translateY(-3px); filter: brightness(1.05); }
 
+        /* --- WHATSAPP FIXO --- */
+        .whatsapp-fixo { 
+            position: fixed; bottom: 25px; right: 25px; 
+            background: var(--cor-verde-whats); color: white; 
+            width: 60px; height: 60px; border-radius: 50%; 
+            display: flex; justify-content: center; align-items: center; 
+            font-size: 32px; z-index: 2000; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2); 
+            transition: transform 0.3s;
+        }
+        .whatsapp-fixo:hover { transform: scale(1.1); }
+
+        footer { 
+            background: #1e1e1e; color: #fff; 
+            text-align: center; padding: 50px 20px; 
+            font-size: 0.9rem; 
+        }
+
+        /* --- RESPONSIVIDADE (MOBILE) --- */
         @media (max-width: 768px) {
-            .header-info-grid { grid-template-columns: 1fr; gap: 15px; }
-            .historia-container { padding: 30px 20px; }
+            .header-info-grid { grid-template-columns: 1fr; gap: 20px; }
+            .info-box { background: #f9f9f9; padding: 15px; } /* Destaque no mobile */
+            
+            header { padding: 50px 15px; }
             header h1 { font-size: 2.2rem; }
-            nav ul { gap: 15px; }
+            
+            .historia-card { padding: 30px 20px; }
+            .historia-card h2 { font-size: 1.8rem; }
+            
+            nav ul { gap: 20px; justify-content: flex-start; } /* Alinha esquerda se tela for pequena */
         }
     </style>
 </head>
 
 <body>
 
-    <div class="alert-bar">
-        ✨ SUPER OFERTA: PACOTE RELAXANTE COM 10% OFF — <span id="contador-cupom">2</span> VAGAS RESTANTES
-    </div>
-
     <nav>
         <ul>
             <li><a href="#inicio">Início</a></li>
-            <li><a href="#historia">Minha História</a></li>
             <li><a href="#atendimento">Atendimento</a></li>
-            <li><a href="#contato">Reservar</a></li>
+            <li><a href="#historia">História</a></li>
+            <li><a href="#contato">Contato</a></li>
         </ul>
     </nav>
 
     <section class="header-info" id="atendimento">
         <div class="header-info-grid">
             <div class="info-box">
-                <i class="fas fa-car-side"></i>
+                <i class="fas fa-car"></i>
                 <div>
                     <h4>Segunda a Quinta</h4>
-                    <p>Atendimento em domicílio (Consulte deslocamento)</p>
+                    <p>Atendimento Domiciliar</p>
                 </div>
             </div>
             <div class="info-box">
-                <i class="fas fa-spa"></i>
+                <i class="fas fa-map-pin"></i>
                 <div>
                     <h4>Sextas e Sábados</h4>
-                    <p>Rua Mármore, 753 - Casa 1, Santa Teresa</p>
+                    <p>Santa Teresa (Rua Mármore, 753)</p>
                 </div>
             </div>
         </div>
@@ -138,31 +264,29 @@
 
     <main class="container-largo">
         
-        <article class="historia-container" id="historia">
-            <h2>Minha História</h2>
-            <p>Me chamo <strong>Jessica Oliveira</strong>. Em 2020, em meio à pandemia, decidi me reinventar. Na época, eu trabalhava como secretária em um consultório de dermatologia e buscava uma forma de aumentar minha renda.</p>
+        <article class="historia-card" id="historia">
+            <h2>Minha Jornada</h2>
+            <p>Me chamo <strong>Jessica Oliveira</strong>. Em 2020, em meio à pandemia, decidi me reinventar e fiz cursos livres de algumas modalidades de massagem. Meu intuito inicial era fazer uma renda extra; na época, eu atuava como secretária em um consultório de dermatologia.</p>
             
-            <p>O que começou como cursos livres para uma renda extra, logo se transformou. Fui aumentando minha cartela de clientes, estudando cada demanda e entendendo que o toque pode curar. Por um tempo, não acreditava que era boa o suficiente, mas meus clientes me mostraram o contrário através de cada indicação e feedback positivo.</p>
+            <p>Ao longo do tempo, fui aumentando minha cartela de clientes e aprofundando meus estudos, entendendo cada demanda com cuidado. Pedia aos meus clientes que divulgassem meu trabalho, mas, no fundo, ainda buscava a confiança de que era boa o suficiente — até que eles próprios me mostraram o contrário com resultados incríveis.</p>
             
-            <p>A paixão pela área cresceu e, em 2022, com uma agenda de clientes fixos, decidi me colocar 100% à disposição da massoterapia.</p>
+            <p>Em 2022, já com uma base sólida de clientes fiéis, me apaixonei completamente pela área e decidi me dedicar 100% à massoterapia profissional.</p>
             
-            <div style="text-align: center;">
-                <span class="realizacao-badge">
-                    <i class="fas fa-check-circle"></i> Hoje me sinto realizada por levar bem-estar e alívio a cada um de vocês.
-                </span>
+            <div class="destaque-box">
+                "Hoje me sinto realizada não só atuando, mas por conseguir levar alívio real e bem-estar aos meus clientes."
             </div>
         </article>
 
-        <section id="contato" style="text-align: center; margin-top: 60px;">
-            <h2 style="font-family: 'Playfair Display'; font-size: 2.2rem; margin-bottom: 10px;">Reserve seu momento</h2>
-            <p style="color: #777;">Escolha a modalidade que melhor se adapta à sua rotina.</p>
+        <section id="contato" style="text-align: center;">
+            <h3 style="font-size: 2rem; margin-bottom: 10px; color: var(--cor-texto);">Agende seu momento</h3>
+            <p style="color: #666; margin-bottom: 25px;">Escolha a modalidade ideal para você.</p>
             
             <div class="btn-container">
-                <a href="https://wa.me/5531993812617?text=Olá Jessica! Li sua história no site e gostaria de agendar um atendimento." target="_blank" class="btn btn-whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i> AGENDAR PELO WHATSAPP
+                <a href="https://wa.me/5531993812617?text=Olá Jessica! Li sua história no site e gostaria de agendar um horário." target="_blank" class="btn btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> AGENDAR NO WHATSAPP
                 </a>
                 <a href="https://www.instagram.com/jessica_massoterapeuta1" target="_blank" class="btn btn-instagram">
-                    <i class="fa-brands fa-instagram"></i> ACOMPANHAR NO INSTAGRAM
+                    <i class="fa-brands fa-instagram"></i> SEGUIR NO INSTAGRAM
                 </a>
             </div>
         </section>
@@ -174,16 +298,14 @@
     </a>
 
     <footer>
-        <h3 style="margin-bottom: 20px; color: var(--cor-dourado);">Jessica Oliveira Massoterapia</h3>
-        <p style="opacity: 0.8; font-size: 0.9rem; max-width: 400px; margin: auto;">Levando saúde e equilíbrio através de técnicas manuais especializadas.</p>
-        <div style="margin: 25px 0; border-top: 1px solid #333; padding-top: 25px;">
-            <p style="font-size: 0.8rem; opacity: 0.6;">&copy; 2026 Jessica Oliveira. Criado pelo Estúdio G</p>
-        </div>
+        <p><strong>Jessica Oliveira Massoterapia</strong></p>
+        <p>Belo Horizonte - MG</p>
+        <p style="margin-top: 15px; opacity: 0.5; font-size: 0.75rem;">&copy; 2026 | Desenvolvido com carinho</p>
     </footer>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
-        import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-database.js";
+        import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-database.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyB4kaVYrfCYeu1LkZj3tgW3Rn1BND5hRWk",
@@ -198,18 +320,13 @@
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
         
+        // Registro de acesso discreto
         setTimeout(() => {
-            push(ref(db, 'acessos_jessica'), { horario: new Date().toLocaleString(), local: "Site Profissional" });
-        }, 2000);
-
-        onValue(ref(db, 'config/vagas_jessica'), (snapshot) => {
-            const qtd = snapshot.val();
-            if (qtd !== null) document.getElementById('contador-cupom').innerText = qtd;
-        });
+            push(ref(db, 'acessos_jessica'), { horario: new Date().toLocaleString(), versao: "Pro Mode" });
+        }, 3000);
     </script>
 </body>
 </html>
-
 
 
 
