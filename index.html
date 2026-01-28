@@ -12,12 +12,13 @@
 
     <style>
         :root {
-            --cor-fundo: #faf9f6; /* Off-white mais elegante */
+            --cor-fundo: #faf9f6; 
             --cor-branco: #ffffff;
             --cor-texto: #443f38;
             --cor-dourado: #c5a028;
             --cor-verde-whats: #25d366;
             --sombra-suave: 0 10px 40px -10px rgba(0,0,0,0.08);
+            --sombra-card: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
@@ -31,198 +32,96 @@
         }
 
         h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+        img { max-width: 100%; display: block; }
 
-        /* --- MENU SUPERIOR PROFISSIONAL --- */
+        /* --- MENU SUPERIOR --- */
         nav {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(8px);
-            position: sticky; 
-            top: 0; 
-            width: 100%; 
-            z-index: 1000; 
+            position: sticky; top: 0; width: 100%; z-index: 1000; 
             padding: 15px 0;
             border-bottom: 1px solid rgba(0,0,0,0.05);
             box-shadow: 0 4px 20px rgba(0,0,0,0.03);
         }
-
-        nav ul { 
-            display: flex; 
-            justify-content: center; 
-            list-style: none; 
-            gap: 30px; 
-            padding: 0 20px;
-            /* Scroll lateral invisível no mobile */
-            overflow-x: auto;
-            white-space: nowrap;
-            -webkit-overflow-scrolling: touch; 
-        }
-        nav ul::-webkit-scrollbar { display: none; }
-
-        nav ul li a { 
-            color: var(--cor-texto); 
-            text-decoration: none; 
-            font-weight: 500; 
-            font-size: 0.85rem; 
-            text-transform: uppercase; 
-            letter-spacing: 1px;
-            transition: color 0.3s;
-        }
+        nav ul { display: flex; justify-content: center; list-style: none; gap: 30px; padding: 0 20px; overflow-x: auto; }
+        nav ul li a { color: var(--cor-texto); text-decoration: none; font-weight: 500; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         nav ul li a:hover { color: var(--cor-dourado); }
 
-        /* --- BARRA DE INFORMAÇÃO (ATENDIMENTO) --- */
-        .header-info {
-            background: var(--cor-branco);
-            border-bottom: 1px solid #eee;
-            padding: 25px 20px;
-        }
+        /* --- BARRA DE INFORMAÇÃO --- */
+        .header-info { background: var(--cor-branco); border-bottom: 1px solid #eee; padding: 25px 20px; }
+        .header-info-grid { max-width: 900px; margin: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .info-box { display: flex; align-items: center; gap: 15px; padding: 10px; border-radius: 8px; }
+        .info-box i { font-size: 1.4rem; color: var(--cor-dourado); background: var(--cor-fundo); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
+        .info-box div h4 { font-size: 0.75rem; text-transform: uppercase; color: #999; letter-spacing: 1px; margin-bottom: 2px; }
+        .info-box div p { font-size: 0.95rem; font-weight: 600; color: var(--cor-texto); }
 
-        .header-info-grid {
-            max-width: 900px; 
-            margin: auto; 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 30px;
-        }
-
-        .info-box { 
-            display: flex; 
-            align-items: center; 
-            gap: 15px; 
-            padding: 10px;
-            border-radius: 8px;
-            transition: transform 0.3s;
-        }
-
-        .info-box:hover { transform: translateY(-2px); }
-
-        .info-box i { 
-            font-size: 1.4rem; 
-            color: var(--cor-dourado); 
-            background: var(--cor-fundo); 
-            width: 50px; 
-            height: 50px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            border-radius: 50%; 
-        }
-
-        .info-box div h4 { 
-            font-size: 0.75rem; 
-            text-transform: uppercase; 
-            color: #999; 
-            letter-spacing: 1px; 
-            margin-bottom: 2px;
-        }
-        
-        .info-box div p { 
-            font-size: 0.95rem; 
-            font-weight: 600; 
-            color: var(--cor-texto); 
-        }
-
-        /* --- HERO SECTION (TOPO) --- */
+        /* --- HERO HEADER --- */
         header {
-            width: 100%; 
-            padding: 60px 20px; /* Altura reduzida e equilibrada */
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("fundo-massoterapia.jpeg") no-repeat center center / cover;
+            width: 100%; padding: 60px 20px; text-align: center;
+            /* FOTO DE FUNDO - Substitua 'fundo-massoterapia.jpeg' pela sua foto */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80") no-repeat center center / cover;
             color: #fff;
-            position: relative;
         }
-
         header h1 { font-size: 3rem; margin-bottom: 5px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
         header p { font-size: 1.1rem; font-weight: 300; opacity: 0.95; letter-spacing: 0.5px; }
 
-        /* --- LAYOUT GERAL --- */
-        .container-largo { max-width: 850px; margin: auto; padding: 50px 20px; }
+        .container-largo { max-width: 1100px; margin: auto; padding: 50px 20px; }
 
         /* --- SEÇÃO HISTÓRIA --- */
         .historia-card {
-            background: var(--cor-branco);
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: var(--sombra-suave);
-            margin-bottom: 50px;
+            background: var(--cor-branco); padding: 50px; border-radius: 20px;
+            box-shadow: var(--sombra-suave); margin-bottom: 60px;
             border-top: 4px solid var(--cor-dourado);
         }
-
         .historia-card h2 { text-align: center; margin-bottom: 30px; font-size: 2.2rem; color: var(--cor-dourado); }
-        .historia-card p { margin-bottom: 20px; color: #555; text-align: justify; font-size: 1rem; }
+        .destaque-box { background: #fdfbf7; padding: 20px; border-left: 4px solid var(--cor-dourado); border-radius: 0 10px 10px 0; margin-top: 30px; font-style: italic; color: #333; font-weight: 500; }
 
-        .destaque-box {
-            background: #fdfbf7;
-            padding: 20px;
-            border-left: 4px solid var(--cor-dourado);
-            border-radius: 0 10px 10px 0;
-            margin-top: 30px;
-            font-style: italic;
-            color: #333;
-            font-weight: 500;
+        /* --- GALERIA E SERVIÇOS (NOVO) --- */
+        .secao-titulo { text-align: center; margin-bottom: 40px; }
+        .secao-titulo h2 { font-size: 2rem; color: var(--cor-texto); }
+        .secao-titulo span { display: block; width: 60px; height: 3px; background: var(--cor-dourado); margin: 15px auto; }
+
+        .galeria-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px; margin-bottom: 60px;
         }
+
+        .card-servico {
+            background: #fff; border-radius: 15px; overflow: hidden;
+            box-shadow: var(--sombra-card); transition: transform 0.3s ease;
+        }
+        .card-servico:hover { transform: translateY(-5px); }
+        
+        .img-container { height: 220px; overflow: hidden; }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .card-servico:hover .img-container img { transform: scale(1.1); }
+
+        .card-texto { padding: 25px; text-align: center; }
+        .card-texto h3 { color: var(--cor-dourado); font-size: 1.3rem; margin-bottom: 10px; }
+        .card-texto p { font-size: 0.9rem; color: #666; margin-bottom: 15px; }
 
         /* --- BOTÕES --- */
-        .btn-container { display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 30px; }
-        
+        .btn-container { display: flex; flex-direction: column; align-items: center; gap: 15px; }
         .btn { 
-            text-decoration: none; 
-            padding: 18px 35px; 
-            border-radius: 50px; 
-            font-weight: 600; 
-            color: #fff; 
-            width: 100%; 
-            max-width: 350px; 
-            text-align: center; 
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-size: 0.95rem;
+            text-decoration: none; padding: 18px 35px; border-radius: 50px; font-weight: 600; color: #fff; 
+            width: 100%; max-width: 350px; text-align: center; transition: all 0.3s ease;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
         }
-
-        .btn-whatsapp { 
-            background: var(--cor-verde-whats); 
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25); 
-        }
-        
-        .btn-instagram { 
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
-            box-shadow: 0 8px 20px rgba(220, 39, 67, 0.25); 
-        }
-
+        .btn-whatsapp { background: var(--cor-verde-whats); box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25); }
+        .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); box-shadow: 0 8px 20px rgba(220, 39, 67, 0.25); }
         .btn:hover { transform: translateY(-3px); filter: brightness(1.05); }
 
-        /* --- WHATSAPP FIXO --- */
-        .whatsapp-fixo { 
-            position: fixed; bottom: 25px; right: 25px; 
-            background: var(--cor-verde-whats); color: white; 
-            width: 60px; height: 60px; border-radius: 50%; 
-            display: flex; justify-content: center; align-items: center; 
-            font-size: 32px; z-index: 2000; 
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2); 
-            transition: transform 0.3s;
-        }
+        .whatsapp-fixo { position: fixed; bottom: 25px; right: 25px; background: var(--cor-verde-whats); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 32px; z-index: 2000; box-shadow: 0 5px 20px rgba(0,0,0,0.2); transition: transform 0.3s; }
         .whatsapp-fixo:hover { transform: scale(1.1); }
 
-        footer { 
-            background: #1e1e1e; color: #fff; 
-            text-align: center; padding: 50px 20px; 
-            font-size: 0.9rem; 
-        }
+        footer { background: #1e1e1e; color: #fff; text-align: center; padding: 50px 20px; font-size: 0.9rem; }
 
-        /* --- RESPONSIVIDADE (MOBILE) --- */
         @media (max-width: 768px) {
             .header-info-grid { grid-template-columns: 1fr; gap: 20px; }
-            .info-box { background: #f9f9f9; padding: 15px; } /* Destaque no mobile */
-            
-            header { padding: 50px 15px; }
+            .info-box { background: #f9f9f9; }
             header h1 { font-size: 2.2rem; }
-            
             .historia-card { padding: 30px 20px; }
-            .historia-card h2 { font-size: 1.8rem; }
-            
-            nav ul { gap: 20px; justify-content: flex-start; } /* Alinha esquerda se tela for pequena */
+            nav ul { justify-content: flex-start; }
         }
     </style>
 </head>
@@ -233,8 +132,8 @@
         <ul>
             <li><a href="#inicio">Início</a></li>
             <li><a href="#atendimento">Atendimento</a></li>
-            <li><a href="#historia">História</a></li>
-            <li><a href="#contato">Contato</a></li>
+            <li><a href="#historia">Minha História</a></li>
+            <li><a href="#servicos">Serviços</a></li> <li><a href="#contato">Contato</a></li>
         </ul>
     </nav>
 
@@ -277,23 +176,65 @@
             </div>
         </article>
 
+        <section id="servicos">
+            <div class="secao-titulo">
+                <h2>Nossos Tratamentos</h2>
+                <span></span>
+                <p>Técnicas especializadas para sua saúde e relaxamento.</p>
+            </div>
+
+            <div class="galeria-grid">
+                <div class="card-servico">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Massagem Relaxante">
+                    </div>
+                    <div class="card-texto">
+                        <h3>Massagem Relaxante</h3>
+                        <p>Movimentos suaves para aliviar o estresse e promover o descanso profundo.</p>
+                    </div>
+                </div>
+
+                <div class="card-servico">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ventosaterapia">
+                    </div>
+                    <div class="card-texto">
+                        <h3>Ventosaterapia</h3>
+                        <p>Técnica que melhora a circulação sanguínea e libera tensões musculares fortes.</p>
+                    </div>
+                </div>
+
+                <div class="card-servico">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Drenagem Linfática">
+                    </div>
+                    <div class="card-texto">
+                        <h3>Drenagem Linfática</h3>
+                        <p>Redução de inchaço e retenção de líquidos, ideal para o pós-operatório.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="contato" style="text-align: center;">
-            <h3 style="font-size: 2rem; margin-bottom: 10px; color: var(--cor-texto);">Agende seu momento</h3>
-            <p style="color: #666; margin-bottom: 25px;">Escolha a modalidade ideal para você.</p>
+            <div class="secao-titulo">
+                <h2 style="color: var(--cor-dourado);">Agende seu Momento</h2>
+            </div>
+            <p style="color: #666; margin-bottom: 30px;">Entre em contato para verificar a disponibilidade de horários.</p>
             
             <div class="btn-container">
-                <a href="https://wa.me/5531993812617?text=Olá Jessica! Li sua história no site e gostaria de agendar um horário." target="_blank" class="btn btn-whatsapp">
+                <a href="https://wa.me/5531993812617?text=Olá Jessica! Vi os serviços no site e gostaria de agendar." target="_blank" class="btn btn-whatsapp">
                     <i class="fa-brands fa-whatsapp"></i> AGENDAR NO WHATSAPP
                 </a>
                 <a href="https://www.instagram.com/jessica_massoterapeuta1" target="_blank" class="btn btn-instagram">
-                    <i class="fa-brands fa-instagram"></i> SEGUIR NO INSTAGRAM
+                    <i class="fa-brands fa-instagram"></i> VER NO INSTAGRAM
                 </a>
             </div>
         </section>
 
     </main>
 
-    <a href="https://wa.me/5531993812617" class="whatsapp-fixo" target="_blank" aria-label="Falar no WhatsApp">
+    <a href="https://wa.me/5531993812617" class="whatsapp-fixo" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
@@ -320,13 +261,13 @@
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
         
-        // Registro de acesso discreto
         setTimeout(() => {
-            push(ref(db, 'acessos_jessica'), { horario: new Date().toLocaleString(), versao: "Pro Mode" });
+            push(ref(db, 'acessos_jessica'), { horario: new Date().toLocaleString(), tipo: "Site Completo" });
         }, 3000);
     </script>
 </body>
 </html>
+
 
 
 
