@@ -3,237 +3,334 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jessica Oliveira | Massoterapia Premium</title>
+    <title>Jessica Oliveira | Massoterapia Profissional</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-body: #FAF9F6;
-            --cor-texto: #1a1a1a;
-            --cor-dourado: #B89E57;
+            --cor-fundo: #faf9f6; 
+            --cor-branco: #ffffff;
+            --cor-texto: #443f38;
+            --cor-dourado: #B89E57; /* Dourado mais nobre */
             --cor-dourado-escuro: #8F7838;
-            --sombra-luxo: 0 15px 40px rgba(0,0,0,0.1);
-            --gradiente-gold: linear-gradient(135deg, #B89E57 0%, #8F7838 100%);
+            --cor-verde-whats: #25d366;
+            --sombra-suave: 0 10px 40px -10px rgba(0,0,0,0.08);
+            --sombra-card: 0 4px 15px rgba(0,0,0,0.05);
+            --gradiente-insta: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { background-color: var(--bg-body); color: var(--cor-texto); font-family: 'Montserrat', sans-serif; line-height: 1.6; }
-
-        nav {
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            padding: 15px 0;
-            background: #ffffff; 
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-        }
-        nav ul { display: flex; justify-content: center; list-style: none; gap: 30px; }
-        nav ul li a { 
-            color: #000000; 
-            text-decoration: none; 
-            font-size: 0.8rem; 
-            text-transform: uppercase; 
-            font-weight: 800;
-            letter-spacing: 1.5px;
-        }
-
-        /* --- HEADER COM SUA IMAGEM --- */
-        header {
-            height: 70vh;
-            display: flex; 
-            flex-direction: column; 
-            justify-content: flex-end; /* Empurra os ícones para baixo */
-            align-items: center;
-            text-align: center;
-            /* Usando a imagem enviada (renomeie para logo-fundo.jpeg) */
-            background: #fff url('logo-fundo.jpeg') no-repeat center center;
-            background-size: contain; /* Garante que o nome na imagem não seja cortado */
-            padding-bottom: 40px;
-            margin-top: 50px;
-        }
-
-        /* Estilo dos Pins/Ícones no Header */
-        .header-social-pins {
-            display: flex;
-            gap: 25px;
-            margin-bottom: 20px;
-        }
-        .header-social-pins a {
-            color: var(--cor-dourado-escuro);
-            font-size: 2.2rem;
-            transition: 0.3s;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-        }
-        .header-social-pins a:hover {
-            transform: translateY(-5px);
-            color: var(--cor-dourado);
-        }
-
-        .main-container { max-width: 1100px; margin: -50px auto 40px; padding: 0 20px; position: relative; z-index: 10; }
-        .grid-top { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 25px; }
         
-        .card { background: #fff; padding: 35px; border-radius: 12px; box-shadow: var(--sombra-luxo); }
-        .card h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; margin-bottom: 20px; color: var(--cor-dourado-escuro); border-bottom: 2px solid var(--cor-dourado); display: inline-block; padding-bottom: 5px; }
-
-        .price-line { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #f5f5f5; font-weight: 700; }
-        .price-line span { color: var(--cor-dourado-escuro); font-size: 1.1rem; }
-
-        .calc-box { background: #1a1a1a; color: #fff; border-left: 5px solid var(--cor-dourado); }
-        .calc-box input { 
-            width: 100%; padding: 15px; margin: 15px 0; border-radius: 8px; border: 1px solid #444; 
-            background: #252525; color: #fff; font-size: 1rem; outline: none;
+        body { 
+            background: var(--cor-fundo); 
+            color: var(--cor-texto); 
+            font-family: 'Poppins', sans-serif; 
+            line-height: 1.7; 
+            overflow-x: hidden; 
         }
-        .calc-box input:focus { border-color: var(--cor-dourado); }
-        .btn-calc { 
-            width: 100%; background: var(--gradiente-gold); color: white; border: none; 
-            padding: 15px; border-radius: 8px; font-weight: 800; cursor: pointer; text-transform: uppercase;
-            transition: 0.3s;
+
+        /* Fontes para Títulos */
+        h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; line-height: 1.2; }
+        img { max-width: 100%; display: block; }
+
+        /* --- MENU SUPERIOR FIXO --- */
+        nav {
+            background: rgba(255, 255, 255, 0.98);
+            position: sticky; top: 0; width: 100%; z-index: 1000; 
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
         }
-        .btn-calc:hover { transform: translateY(-2px); opacity: 0.9; }
-        .res-area { margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; display: none; text-align: center; border: 1px dashed var(--cor-dourado); }
-
-        .about-section { padding: 80px 20px; max-width: 1050px; margin: auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; align-items: center; }
-        .about-img { position: relative; }
-        .about-img img { 
-            width: 100%; border-radius: 20px; 
-            box-shadow: 20px 20px 0 var(--cor-dourado-escuro); 
-            object-fit: cover;
-            max-height: 500px;
+        nav ul { display: flex; justify-content: center; list-style: none; gap: 25px; padding: 0 20px; overflow-x: auto; }
+        nav ul li a { 
+            color: var(--cor-texto); text-decoration: none; font-weight: 600; 
+            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
+            font-family: 'Poppins', sans-serif;
         }
-        .about-text h2 { font-family: 'Cormorant Garamond', serif; font-size: 3rem; margin-bottom: 20px; color: var(--cor-dourado-escuro); }
-        .about-text p { margin-bottom: 18px; color: #444; font-size: 1.1rem; text-align: justify; }
+        nav ul li a:hover { color: var(--cor-dourado); }
 
-        .materials { padding: 80px 20px; text-align: center; }
-        .mat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1100px; margin: 50px auto; }
-        .mat-card { background: #fff; padding: 15px; border-radius: 15px; box-shadow: var(--sombra-luxo); }
-        .mat-card img { width: 100%; height: 280px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
-        .mat-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; }
+        /* --- BARRA DE INFORMAÇÃO (HORÁRIO) --- */
+        .header-info { background: var(--cor-branco); border-bottom: 1px solid #eee; padding: 25px 20px; }
+        .header-info-grid { max-width: 900px; margin: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .info-box { display: flex; align-items: center; gap: 15px; padding: 10px; border-radius: 8px; }
+        .info-box i { font-size: 1.4rem; color: var(--cor-dourado); background: var(--cor-fundo); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
+        .info-box div h4 { font-family: 'Poppins', sans-serif; font-size: 0.75rem; text-transform: uppercase; color: #999; letter-spacing: 1px; margin-bottom: 2px; }
+        .info-box div p { font-size: 0.95rem; font-weight: 600; color: var(--cor-texto); }
 
-        .whatsapp-fixo { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); z-index: 2000; text-decoration: none; transition: 0.3s; }
+        /* --- HERO HEADER (TOPO ATUALIZADO) --- */
+        header {
+            width: 100%; 
+            padding: 140px 20px; /* Mais altura para ficar elegante */
+            text-align: center;
+            /* AQUI VAI A SUA IMAGEM DE FUNDO MÁRMORE */
+            background: url("header-bg.png") no-repeat center center;
+            background-size: cover;
+            /* Cor do texto agora é DOURADO para combinar com o fundo claro */
+            color: var(--cor-dourado-escuro);
+            position: relative;
+        }
+        
+        header h1 { 
+            font-size: 3.8rem; 
+            margin-bottom: 10px; 
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-shadow: none; /* Sem sombra escura */
+        }
+        header p { 
+            font-size: 1.8rem; 
+            font-weight: 400; 
+            letter-spacing: 1px;
+            font-style: italic;
+            color: var(--cor-dourado);
+            text-shadow: none;
+        }
 
-        footer { background: #000; color: #888; text-align: center; padding: 50px 20px; border-top: 4px solid var(--cor-dourado); }
+        .container-largo { max-width: 1100px; margin: auto; padding: 50px 20px; }
 
-        @media (max-width: 850px) {
-            .grid-top, .about-section { grid-template-columns: 1fr; }
-            header { height: 40vh; background-size: contain; }
-            .header-social-pins a { font-size: 1.8rem; }
-            nav ul { gap: 15px; }
-            nav ul li a { font-size: 0.7rem; }
+        /* --- SEÇÃO HISTÓRIA --- */
+        .historia-card {
+            background: var(--cor-branco); padding: 50px; border-radius: 20px;
+            box-shadow: var(--sombra-suave); margin-bottom: 60px;
+            border-top: 4px solid var(--cor-dourado);
+        }
+        .historia-card h2 { text-align: center; margin-bottom: 30px; font-size: 2.5rem; color: var(--cor-dourado-escuro); }
+        .destaque-box { background: #fdfbf7; padding: 25px; border-left: 4px solid var(--cor-dourado); border-radius: 0 10px 10px 0; margin-top: 30px; font-style: italic; color: var(--cor-dourado-escuro); font-weight: 600; font-size: 1.1rem; font-family: 'Cormorant Garamond', serif; }
+
+        /* --- SEÇÃO DE EQUIPAMENTOS --- */
+        .equipamentos-section { margin-bottom: 80px; }
+        .titulo-secao { text-align: center; margin-bottom: 50px; }
+        .titulo-secao h2 { font-size: 2.5rem; color: var(--cor-dourado-escuro); margin-bottom: 10px; }
+        .equip-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
+        
+        .equip-item { 
+            background: #fff; padding: 35px 25px; border-radius: 15px; text-align: center; 
+            box-shadow: var(--sombra-card); transition: 0.3s; border: 1px solid #f0f0f0;
+        }
+        .equip-item:hover { transform: translateY(-5px); border-color: var(--cor-dourado); box-shadow: var(--sombra-suave); }
+        .equip-item i { font-size: 2.2rem; color: var(--cor-dourado); margin-bottom: 20px; }
+        .equip-item h3 { font-size: 1.2rem; margin-bottom: 10px; color: var(--cor-texto); }
+        .equip-item p { font-size: 0.9rem; color: #666; }
+
+        /* --- GALERIA E SERVIÇOS --- */
+        .galeria-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px; margin-bottom: 80px;
+        }
+        .card-servico {
+            background: #fff; border-radius: 15px; overflow: hidden;
+            box-shadow: var(--sombra-card); transition: transform 0.3s ease; border: 1px solid #f0f0f0;
+        }
+        .card-servico:hover { transform: translateY(-5px); border-color: var(--cor-dourado-escuro); }
+        .img-container { height: 240px; overflow: hidden; background: #ddd; }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .card-servico:hover .img-container img { transform: scale(1.1); }
+        .card-texto { padding: 25px; text-align: center; }
+        .card-texto h3 { color: var(--cor-dourado-escuro); font-size: 1.4rem; margin-bottom: 10px; }
+        .card-texto p { font-size: 0.95rem; color: #666; }
+
+        /* --- BOTÕES --- */
+        .btn-container { display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        .btn { 
+            text-decoration: none; padding: 18px 35px; border-radius: 50px; font-weight: 600; color: #fff; 
+            width: 100%; max-width: 350px; text-align: center; transition: all 0.3s ease;
+            display: flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Poppins', sans-serif;
+        }
+        .btn-whatsapp { background: var(--cor-verde-whats); box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25); }
+        .btn-instagram { background: var(--gradiente-insta); box-shadow: 0 8px 20px rgba(220, 39, 67, 0.25); }
+        .btn:hover { transform: translateY(-3px); filter: brightness(1.05); }
+
+        .whatsapp-fixo { position: fixed; bottom: 25px; right: 25px; background: var(--cor-verde-whats); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 32px; z-index: 2000; box-shadow: 0 5px 20px rgba(0,0,0,0.2); transition: transform 0.3s; }
+        .whatsapp-fixo:hover { transform: scale(1.1); }
+
+        footer { background: #1a1a1a; color: #fff; text-align: center; padding: 60px 20px; font-size: 0.9rem; border-top: 4px solid var(--cor-dourado); }
+        footer h3 { color: var(--cor-dourado); font-size: 1.5rem; margin-bottom: 10px; }
+
+        @media (max-width: 768px) {
+            .header-info-grid { grid-template-columns: 1fr; gap: 20px; }
+            header { padding: 100px 20px; }
+            header h1 { font-size: 2.5rem; }
+            header p { font-size: 1.4rem; }
+            .historia-card { padding: 30px 20px; }
+            nav ul { justify-content: flex-start; gap: 20px; }
         }
     </style>
 </head>
+
 <body>
 
     <nav>
         <ul>
             <li><a href="#inicio">Início</a></li>
-            <li><a href="#valores">Valores</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#materiais">Estrutura</a></li>
+            <li><a href="#atendimento">Locais</a></li>
+            <li><a href="#historia">História</a></li>
+            <li><a href="#diferenciais">Diferenciais</a></li>
+            <li><a href="#servicos">Serviços</a></li>
         </ul>
     </nav>
 
-    <header id="inicio">
-        <div class="header-social-pins">
-            <a href="https://www.instagram.com/jessica_massoterapeuta1" target="_blank" title="Instagram">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://wa.me/5531993812617" target="_blank" title="WhatsApp">
-                <i class="fa-brands fa-whatsapp"></i>
-            </a>
-        </div>
-    </header>
-
-    <div class="main-container">
-        <div class="grid-top" id="valores">
-            <div class="card">
-                <h3>Sessões</h3>
-                <div class="price-line">Massagem Relaxante <span>R$ 100,00</span></div>
-                <div class="price-line">Drenagem Linfática <span>R$ 120,00</span></div>
-                <div class="price-line">Pedras Quentes <span>R$ 150,00</span></div>
-                <div class="price-line">Liberação Miofascial <span>R$ 130,00</span></div>
-                <p style="font-size: 0.85rem; margin-top: 20px; color: #666; font-style: italic;">* Atendimento personalizado com foco na sua dor.</p>
+    <section class="header-info" id="atendimento">
+        <div class="header-info-grid">
+            <div class="info-box">
+                <i class="fas fa-car"></i>
+                <div>
+                    <h4>Segunda a Quinta</h4>
+                    <p>Atendimento Domiciliar</p>
+                </div>
             </div>
-
-            <div class="card calc-box">
-                <h3 style="color: var(--cor-dourado); border-bottom-color: #444;">Taxa de Domicílio</h3>
-                <p style="font-size: 0.9rem; margin-bottom: 10px;">Atendemos em sua casa com total conforto. <br><strong>Até 5km: Grátis!</strong></p>
-                <input type="number" id="kmDistancia" placeholder="Distância em KM">
-                <button class="btn-calc" onclick="calcular()">Calcular Agora</button>
-                <div id="resultado" class="res-area">
-                    <span style="font-size: 0.85rem; color: #aaa;">Valor Adicional:</span>
-                    <strong id="valorTaxa" style="font-size: 1.6rem; color: var(--cor-dourado); display: block;">R$ 0,00</strong>
+            <div class="info-box">
+                <i class="fas fa-map-pin"></i>
+                <div>
+                    <h4>Sextas e Sábados</h4>
+                    <p>Santa Teresa (Rua Mármore, 753)</p>
                 </div>
             </div>
         </div>
-    </div>
-
-    <section class="about-section" id="sobre">
-        <div class="about-img">
-            <img src="foto-prima.jpeg" alt="Jessica Oliveira Massoterapeuta">
-        </div>
-        <div class="about-text">
-            <h2>Minha História</h2>
-            <p>Me chamo <strong>Jessica Oliveira</strong>. Em 2020, decidi me reinventar e mergulhei no universo da massoterapia.</p>
-            <p>O que começou como uma busca por renda extra tornou-se minha grande paixão. Ao longo do tempo, percebi que meu toque trazia alívio real e qualidade de vida para meus clientes.</p>
-            <p>Hoje, sinto-me realizada por proporcionar equilíbrio e bem-estar, ajudando cada pessoa a reconectar-se com sua melhor versão através de técnicas terapêuticas profissionais.</p>
-        </div>
     </section>
 
-    <section class="materials" id="materiais">
-        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--cor-dourado-escuro);">Estrutura de Atendimento</h2>
-        <div class="mat-grid">
-            <div class="mat-card">
-                <img src="foto-prima.jpeg" alt="Pedras">
-                <h4>Pedras Vulcânicas</h4>
-                <p style="font-size: 0.9rem; color: #777;">Calor que relaxa as fibras musculares mais profundas.</p>
-            </div>
-            <div class="mat-card">
-                <img src="foto-prima1.jpeg" alt="Equipamentos">
-                <h4>Equipamento Pro</h4>
-                <p style="font-size: 0.9rem; color: #777;">Maca portátil confortável e aparelhos de alta frequência.</p>
-            </div>
-            <div class="mat-card">
-                <img src="foto-prima3.jpeg" alt="Óleos">
-                <h4>Insumos Premium</h4>
-                <p style="font-size: 0.9rem; color: #777;">Óleos vegetais e essenciais de pureza garantida.</p>
-            </div>
-        </div>
-    </section>
+    <header id="inicio">
+        <h1>Jessica Oliveira</h1>
+        <p>Massoterapeuta</p>
+    </header>
 
-    <a href="https://wa.me/5531993812617?text=Oi Jessica! Gostaria de agendar um horário." class="whatsapp-fixo" target="_blank">
+    <main class="container-largo">
+        
+        <article class="historia-card" id="historia">
+            <h2>Minha Jornada</h2>
+            <p>Me chamo <strong>Jessica Oliveira</strong>. Em 2020, em meio à pandemia, decidi me reinventar e fiz cursos livres de algumas modalidades de massagem. Meu intuito inicial era fazer uma renda extra; na época, eu atuava como secretária em um consultório de dermatologia.</p>
+            
+            <p>Ao longo do tempo, fui aumentando minha cartela de clientes e aprofundando meus estudos, entendendo cada demanda com cuidado. Pedia aos meus clientes que divulgassem meu trabalho, mas, no fundo, ainda buscava a confiança de que era boa o suficiente — até que eles próprios me mostraram o contrário com resultados incríveis.</p>
+            
+            <p>Em 2022, já com uma base sólida de clientes fiéis, me apaixonei completamente pela área e decidi me dedicar 100% à massoterapia profissional.</p>
+            
+            <div class="destaque-box">
+                "Hoje me sinto realizada não só atuando, mas por conseguir levar alívio real e bem-estar aos meus clientes."
+            </div>
+        </article>
+
+        <section class="equipamentos-section" id="diferenciais">
+            <div class="titulo-secao">
+                <h2>Nossa Estrutura Premium</h2>
+                <p>Cuidado em cada detalhe para sua melhor experiência.</p>
+            </div>
+            <div class="equip-grid">
+                <div class="equip-item">
+                    <i class="fas fa-spa"></i>
+                    <h3>Maca Confort</h3>
+                    <p>Estrutura profissional, segura e extremamente confortável para seu relaxamento.</p>
+                </div>
+                <div class="equip-item">
+                    <i class="fas fa-pump-medical"></i>
+                    <h3>Ventosaterapia</h3>
+                    <p>Kit profissional para liberação miofascial e alívio de dores intensas.</p>
+                </div>
+                <div class="equip-item">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Cosméticos Naturais</h3>
+                    <p>Óleos essenciais e cremes de alta performance, livres de parabenos.</p>
+                </div>
+                <div class="equip-item">
+                    <i class="fas fa-hand-sparkles"></i>
+                    <h3>Biossegurança</h3>
+                    <p>Protocolos rigorosos de higiene e materiais descartáveis a cada atendimento.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos">
+            <div class="titulo-secao">
+                <h2>Nossos Tratamentos</h2>
+                <p>Técnicas manuais especializadas para sua necessidade.</p>
+            </div>
+
+            <div class="galeria-grid">
+                <div class="card-servico">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Massagem Relaxante">
+                    </div>
+                    <div class="card-texto">
+                        <h3>Massagem Relaxante</h3>
+                        <p>Movimentos suaves e fluidos para combater o estresse e promover descanso profundo.</p>
+                    </div>
+                </div>
+
+                <div class="card-servico">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1591343395082-9b14442071b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Massagem Terapêutica">
+                    </div>
+                    <div class="card-texto">
+                        <h3>Liberação Miofascial</h3>
+                        <p>Técnica mais profunda para soltar nódulos de tensão e melhorar a mobilidade.</p>
+                    </div>
+                </div>
+
+                <div class="card-servico">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Drenagem Linfática">
+                    </div>
+                    <div class="card-texto">
+                        <h3>Drenagem Linfática</h3>
+                        <p>Estimula o sistema linfático, reduzindo inchaço e retenção de líquidos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" style="text-align: center; margin-bottom: 40px;">
+            <div class="titulo-secao">
+                <h2 style="color: var(--cor-dourado-escuro);">Agende seu Momento</h2>
+                <p>Verifique a disponibilidade de horários para o seu atendimento.</p>
+            </div>
+            
+            <div class="btn-container">
+                <a href="https://wa.me/5531993812617?text=Olá Jessica! Visitei seu site e gostaria de agendar um atendimento." target="_blank" class="btn btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> AGENDAR PELO WHATSAPP
+                </a>
+                <a href="https://www.instagram.com/jessica_massoterapeuta1" target="_blank" class="btn btn-instagram">
+                    <i class="fa-brands fa-instagram"></i> SEGUIR NO INSTAGRAM
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <a href="https://wa.me/5531993812617" class="whatsapp-fixo" target="_blank" aria-label="Falar no WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
     <footer>
-        <p style="color: #fff; margin-bottom: 10px;"><strong>JESSICA OLIVEIRA MASSOTERAPIA</strong></p>
-        <p>Belo Horizonte - MG | Rua Mármore, 753 (Sex e Sáb)</p>
-        <p style="margin-top: 20px; font-size: 0.8rem;">&copy; 2026 - Todos os direitos reservados.</p>
+        <h3>Jessica Oliveira Massoterapia</h3>
+        <p>Belo Horizonte - MG</p>
+        <p style="margin-top: 20px; opacity: 0.6; font-size: 0.8rem; font-family: 'Poppins', sans-serif;">&copy; 2026 | Todos os direitos reservados</p>
     </footer>
 
-    <script>
-        function calcular() {
-            const km = document.getElementById('kmDistancia').value;
-            const resArea = document.getElementById('resultado');
-            const valorTaxa = document.getElementById('valorTaxa');
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
+        import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-database.js";
 
-            if(km === "" || km < 0) {
-                alert("Por favor, digite a distância em KM.");
-                return;
-            }
+        const firebaseConfig = {
+            apiKey: "AIzaSyB4kaVYrfCYeu1LkZj3tgW3Rn1BND5hRWk",
+            authDomain: "superclean-426ab.firebaseapp.com",
+            databaseURL: "https://superclean-426ab-default-rtdb.firebaseio.com",
+            projectId: "superclean-426ab",
+            storageBucket: "superclean-426ab.firebasestorage.app",
+            messagingSenderId: "710947410931",
+            appId: "1:710947410931:web:ea7bc519874cc875b67886"
+        };
 
-            let custo = 0;
-            if (km > 5) {
-                custo = (km - 5) * 4.50;
-            }
-
-            valorTaxa.innerText = custo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-            resArea.style.display = 'block';
-        }
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        
+        setTimeout(() => {
+            push(ref(db, 'acessos_jessica'), { horario: new Date().toLocaleString(), versao: "Final Premium Mármore" });
+        }, 3000);
     </script>
-
 </body>
 </html>
+
 
