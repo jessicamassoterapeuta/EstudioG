@@ -23,11 +23,10 @@
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { background-color: var(--bg-body); color: var(--cor-texto); font-family: 'Montserrat', sans-serif; line-height: 1.6; }
 
-        /* --- MENU NEGRITO E SEGURO --- */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 1000;
             padding: 15px 0;
-            background: #ffffff; /* Fundo branco sólido para garantir leitura */
+            background: #ffffff; 
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
         }
         nav ul { display: flex; justify-content: center; list-style: none; gap: 30px; }
@@ -36,39 +35,42 @@
             text-decoration: none; 
             font-size: 0.8rem; 
             text-transform: uppercase; 
-            font-weight: 800; /* Super Negrito */
+            font-weight: 800;
             letter-spacing: 1.5px;
         }
 
-        /* --- HEADER COM FUNDO GARANTIDO --- */
+        /* --- HEADER COM SUA IMAGEM --- */
         header {
-            height: 60vh;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; color: #fff;
-            /* Degradê de segurança + Imagem Profissional */
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-            background-size: cover;
-            background-position: center;
-            padding: 20px;
-            margin-top: 50px; /* Compensa o menu fixo */
-        }
-        header h1 { 
-            font-family: 'Cormorant Garamond', serif; 
-            font-size: clamp(2.5rem, 8vw, 4rem); 
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5); 
-            margin-bottom: 10px;
-        }
-        header p { 
-            font-size: 1rem; 
-            letter-spacing: 4px; 
-            text-transform: uppercase; 
-            color: var(--cor-dourado); 
-            font-weight: 700;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+            height: 70vh;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: flex-end; /* Empurra os ícones para baixo */
+            align-items: center;
+            text-align: center;
+            /* Usando a imagem enviada (renomeie para logo-fundo.jpeg) */
+            background: #fff url('logo-fundo.jpeg') no-repeat center center;
+            background-size: contain; /* Garante que o nome na imagem não seja cortado */
+            padding-bottom: 40px;
+            margin-top: 50px;
         }
 
-        /* --- CONTAINER PRINCIPAL (VALORES E CALC) --- */
+        /* Estilo dos Pins/Ícones no Header */
+        .header-social-pins {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+        .header-social-pins a {
+            color: var(--cor-dourado-escuro);
+            font-size: 2.2rem;
+            transition: 0.3s;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+        .header-social-pins a:hover {
+            transform: translateY(-5px);
+            color: var(--cor-dourado);
+        }
+
         .main-container { max-width: 1100px; margin: -50px auto 40px; padding: 0 20px; position: relative; z-index: 10; }
         .grid-top { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 25px; }
         
@@ -78,7 +80,6 @@
         .price-line { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #f5f5f5; font-weight: 700; }
         .price-line span { color: var(--cor-dourado-escuro); font-size: 1.1rem; }
 
-        /* Calculadora Estilo Dark Luxo */
         .calc-box { background: #1a1a1a; color: #fff; border-left: 5px solid var(--cor-dourado); }
         .calc-box input { 
             width: 100%; padding: 15px; margin: 15px 0; border-radius: 8px; border: 1px solid #444; 
@@ -93,7 +94,6 @@
         .btn-calc:hover { transform: translateY(-2px); opacity: 0.9; }
         .res-area { margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; display: none; text-align: center; border: 1px dashed var(--cor-dourado); }
 
-        /* --- SOBRE (HISTÓRIA PRIMA) --- */
         .about-section { padding: 80px 20px; max-width: 1050px; margin: auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; align-items: center; }
         .about-img { position: relative; }
         .about-img img { 
@@ -105,25 +105,22 @@
         .about-text h2 { font-family: 'Cormorant Garamond', serif; font-size: 3rem; margin-bottom: 20px; color: var(--cor-dourado-escuro); }
         .about-text p { margin-bottom: 18px; color: #444; font-size: 1.1rem; text-align: justify; }
 
-        /* --- ESTRUTURA --- */
         .materials { padding: 80px 20px; text-align: center; }
         .mat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1100px; margin: 50px auto; }
         .mat-card { background: #fff; padding: 15px; border-radius: 15px; box-shadow: var(--sombra-luxo); }
         .mat-card img { width: 100%; height: 280px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
         .mat-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; }
 
-        /* --- WHATSAPP FIXO --- */
         .whatsapp-fixo { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); z-index: 2000; text-decoration: none; transition: 0.3s; }
-        .whatsapp-fixo:hover { transform: scale(1.1); }
 
         footer { background: #000; color: #888; text-align: center; padding: 50px 20px; border-top: 4px solid var(--cor-dourado); }
 
         @media (max-width: 850px) {
             .grid-top, .about-section { grid-template-columns: 1fr; }
-            header { height: 50vh; }
+            header { height: 40vh; background-size: contain; }
+            .header-social-pins a { font-size: 1.8rem; }
             nav ul { gap: 15px; }
             nav ul li a { font-size: 0.7rem; }
-            .main-container { margin-top: -30px; }
         }
     </style>
 </head>
@@ -139,8 +136,14 @@
     </nav>
 
     <header id="inicio">
-        <h1>Jessica Oliveira</h1>
-        <p>Massoterapia Premium & Bem-Estar</p>
+        <div class="header-social-pins">
+            <a href="https://www.instagram.com/jessica_massoterapeuta1" target="_blank" title="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/5531993812617" target="_blank" title="WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+        </div>
     </header>
 
     <div class="main-container">
@@ -233,3 +236,4 @@
 
 </body>
 </html>
+
