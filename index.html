@@ -11,13 +11,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
 
 <style>
-:root{
---bg-body:#FAF9F6;
---cor-texto:#1a1a1a;
---cor-dourado:#B89E57;
---cor-dourado-escuro:#8F7838;
---sombra-luxo:0 15px 40px rgba(0,0,0,.1);
---gradiente-gold:linear-gradient(135deg,#B89E57 0%,#8F7838 100%);
+:root {
+    --bg-body:#FAF9F6;
+    --cor-texto:#1a1a1a;
+    --cor-dourado:#B89E57;
+    --cor-dourado-escuro:#8F7838;
+    --sombra-luxo:0 15px 40px rgba(0,0,0,0.1);
+    --gradiente-gold:linear-gradient(135deg,#B89E57 0%,#8F7838 100%);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
@@ -34,8 +34,7 @@ nav ul li a{
 color:#000;font-weight:800;
 text-transform:uppercase;
 letter-spacing:1.5px;
-font-size:.8rem;text-decoration:none
-}
+font-size:.8rem;text-decoration:none}
 
 /* HEADER */
 header{
@@ -47,20 +46,21 @@ align-items:center;
 text-align:center;
 color:#fff;
 background:
-linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-url('https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg');
+linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+url('https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
 background-size:cover;
 background-position:center;
 margin-top:50px;
-padding:20px
+padding:20px;
 }
 
 header h1{
 font-family:'Cormorant Garamond',serif;
-font-size:clamp(3rem,8vw,4.5rem);
+font-size:clamp(2.8rem,8vw,4.5rem);
+font-weight:700;
 letter-spacing:2px;
-color:var(--cor-dourado);
-text-shadow:0 4px 15px rgba(0,0,0,.6)
+color:#D6B76A;
+text-shadow:0 2px 8px rgba(0,0,0,.6);
 }
 
 header p{
@@ -155,8 +155,8 @@ background:rgba(0,0,0,.7)
 }
 .modal-content{
 background:#fff;
-max-width:650px;
-margin:6% auto;
+max-width:600px;
+margin:8% auto;
 padding:30px;
 border-radius:15px;
 box-shadow:var(--sombra-luxo)
@@ -191,10 +191,6 @@ align-items:center;
 font-size:35px;
 box-shadow:0 10px 20px rgba(0,0,0,.2)
 }
-
-@media(max-width:850px){
-.grid-top{grid-template-columns:1fr}
-}
 </style>
 </head>
 
@@ -217,7 +213,6 @@ box-shadow:0 10px 20px rgba(0,0,0,.2)
 
 <div class="main-container">
 <div class="grid-top" id="valores">
-
 <div class="card calc-box">
 <h3 style="color:var(--cor-dourado)">Taxa de Domicílio</h3>
 <input type="number" id="kmDistancia" placeholder="Distância em KM">
@@ -226,39 +221,36 @@ box-shadow:0 10px 20px rgba(0,0,0,.2)
 <strong id="valorTaxa">R$ 0,00</strong>
 </div>
 </div>
-
 </div>
 </div>
 
+<!-- MODAL DE PREÇOS (ATUALIZADO COMPLETO) -->
 <div id="modalPacotes" class="modal">
 <div class="modal-content">
 <span class="close" onclick="fecharPacotes()">&times;</span>
-<h2>Preços e Pacotes</h2>
+<h2>Pacotes de Massagem</h2>
 
 <h4>Massagem Relaxante Manual – R$ 110,00</h4>
-<p>Plano com 4 sessões: R$ 380,00<br>Plano com 8 sessões: R$ 680,00</p>
+<p>Plano com 4 sessões – R$ 380,00<br>Plano com 8 sessões – R$ 680,00</p>
 
 <h4>Massagem Relaxante + Ventosas – R$ 120,00</h4>
-<p>Plano com 4 sessões: R$ 400,00<br>Plano com 8 sessões: R$ 720,00</p>
+<p>Plano com 4 sessões – R$ 400,00<br>Plano com 8 sessões – R$ 720,00</p>
 
 <h4>Massagem Relaxante + Liberação Miofascial – R$ 110,00</h4>
-<p>Plano com 4 sessões: R$ 380,00<br>Plano com 8 sessões: R$ 680,00</p>
+<p>Plano com 4 sessões – R$ 380,00<br>Plano com 8 sessões – R$ 680,00</p>
 
 <h4>Drenagem Linfática – R$ 120,00</h4>
-<p>Plano com 4 sessões: R$ 380,00<br>Plano com 8 sessões: R$ 680,00</p>
+<p>Plano com 4 sessões – R$ 380,00<br>Plano com 8 sessões – R$ 680,00</p>
 
-<h4>Massagem Modeladora – R$ 130,00</h4>
-<p>Plano com 4 sessões: R$ 420,00<br>Plano com 8 sessões: R$ 760,00</p>
+<h4>Modeladora – R$ 130,00</h4>
+<p>Plano com 4 sessões – R$ 420,00<br>Plano com 8 sessões – R$ 760,00</p>
 
 <h4>Massagem Relaxante + Pedras Quentes – R$ 135,00</h4>
-<p>Plano com 4 sessões: R$ 380,00<br>Plano com 8 sessões: R$ 680,00</p>
+<p>Plano com 4 sessões – R$ 380,00<br>Plano com 8 sessões – R$ 680,00</p>
 
 <h4>Massagem 4 em 1 – R$ 160,00</h4>
-<p>
-Relaxante Manual + Liberação Miofascial + Ventosas + Pedras Quentes<br>
-Plano com 4 sessões: R$ 520,00<br>
-Plano com 8 sessões: R$ 960,00
-</p>
+<p>(Relaxante Manual + Liberação Miofascial + Ventosas + Pedras Quentes)</p>
+<p>Plano com 4 sessões – R$ 520,00<br>Plano com 8 sessões – R$ 960,00</p>
 
 </div>
 </div>
@@ -273,20 +265,18 @@ const km=document.getElementById('kmDistancia').value;
 const res=document.getElementById('resultado');
 const valor=document.getElementById('valorTaxa');
 let custo=0;
-if(km>5){custo=(km-5)*4.5}
+if(km>2){custo=(km-2)*5.5}
 valor.innerText=custo.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
 res.style.display='block';
 }
 
-function abrirPacotes(){
-document.getElementById('modalPacotes').style.display='block'
-}
-function fecharPacotes(){
-document.getElementById('modalPacotes').style.display='none'
-}
+function abrirPacotes(){document.getElementById('modalPacotes').style.display='block'}
+function fecharPacotes(){document.getElementById('modalPacotes').style.display='none'}
 </script>
 
 </body>
 </html>
+
+
 
 
