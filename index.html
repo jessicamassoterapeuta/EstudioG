@@ -11,73 +11,122 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
 
 <style>
-:root{
---bg-body:#FAF9F6;
---cor-texto:#1a1a1a;
---cor-dourado:#B89E57;
---cor-dourado-escuro:#8F7838;
---sombra-luxo:0 15px 40px rgba(0,0,0,.1);
---gradiente-gold:linear-gradient(135deg,#B89E57 0%,#8F7838 100%);
+:root {
+    --bg-body:#FAF9F6;
+    --cor-texto:#1a1a1a;
+    --cor-dourado:#B89E57;
+    --cor-dourado-escuro:#8F7838;
+    --sombra-luxo:0 15px 40px rgba(0,0,0,.1);
+    --gradiente-gold:linear-gradient(135deg,#B89E57 0%,#8F7838 100%);
 }
 
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
-body{background:var(--bg-body);color:var(--cor-texto);font-family:'Montserrat',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Montserrat',sans-serif;background:var(--bg-body)}
 
-/* MENU */
-nav{position:fixed;top:0;width:100%;z-index:1000;background:#fff;padding:15px 0;box-shadow:0 2px 15px rgba(0,0,0,.1)}
-nav ul{display:flex;justify-content:center;gap:30px;list-style:none}
-nav ul li a{color:#000;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:.8rem;text-decoration:none}
+nav{
+position:fixed;top:0;width:100%;background:#fff;
+box-shadow:0 2px 15px rgba(0,0,0,.1);z-index:1000
+}
+nav ul{display:flex;justify-content:center;gap:30px;list-style:none;padding:15px}
+nav a{text-decoration:none;color:#000;font-weight:800;font-size:.8rem;text-transform:uppercase}
 
-/* HEADER */
 header{
 height:60vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-text-align:center;
 color:#fff;
-background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
-url('https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg');
+text-align:center;
+margin-top:60px;
+background:
+linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+url("SUA_IMAGEM_AQUI.jpg");
 background-size:cover;
 background-position:center;
-margin-top:50px;
 }
-header h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,8vw,4rem)}
-header p{letter-spacing:4px;text-transform:uppercase;color:var(--cor-dourado);font-weight:700}
 
-/* BOTÃO PREÇOS */
-.btn-pacotes{
-margin-top:25px;
-padding:14px 35px;
-border:none;
-border-radius:30px;
-font-weight:800;
-background:var(--gradiente-gold);
-color:#fff;
-cursor:pointer;
+header h1{
+font-family:'Cormorant Garamond',serif;
+font-size:clamp(2.5rem,8vw,4rem)
+}
+header p{
+letter-spacing:4px;
+text-transform:uppercase;
+color:var(--cor-dourado)
+}
+
+.main-container{max-width:1100px;margin:-50px auto 40px;padding:20px}
+.grid-top{display:grid;grid-template-columns:1.2fr .8fr;gap:25px}
+
+.card{
+background:#fff;
+padding:35px;
+border-radius:12px;
 box-shadow:var(--sombra-luxo)
 }
 
-/* CONTAINER / CALC */
-.main-container{max-width:1100px;margin:-50px auto 40px;padding:0 20px}
-.grid-top{display:grid;grid-template-columns:1.2fr .8fr;gap:25px}
-.card{background:#fff;padding:35px;border-radius:12px;box-shadow:var(--sombra-luxo)}
+.card h3{
+font-family:'Cormorant Garamond',serif;
+font-size:2.2rem;
+color:var(--cor-dourado-escuro);
+border-bottom:2px solid var(--cor-dourado);
+display:inline-block;
+margin-bottom:20px
+}
 
-.calc-box{background:#1a1a1a;color:#fff;border-left:5px solid var(--cor-dourado)}
-.calc-box input{width:100%;padding:15px;margin:15px 0;border-radius:8px;border:1px solid #444;background:#252525;color:#fff}
-.btn-calc{width:100%;padding:15px;border:none;border-radius:8px;font-weight:800;background:var(--gradiente-gold);color:#fff;cursor:pointer}
-.res-area{display:none;margin-top:20px;padding:15px;border:1px dashed var(--cor-dourado);border-radius:8px;text-align:center}
+.btn-precos{
+margin-top:20px;
+width:100%;
+padding:15px;
+border:none;
+background:var(--gradiente-gold);
+color:#fff;
+font-weight:800;
+border-radius:8px;
+cursor:pointer
+}
 
 /* MODAL */
-.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);z-index:3000}
-.modal-content{background:#fff;max-width:600px;margin:8% auto;padding:30px;border-radius:15px}
-.modal-content h2{font-family:'Cormorant Garamond',serif;color:var(--cor-dourado-escuro)}
-.modal-content h4{margin-top:15px;color:var(--cor-dourado-escuro)}
-.close{float:right;font-size:28px;cursor:pointer}
+.modal{
+display:none;
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,.7);
+justify-content:center;
+align-items:center;
+z-index:3000
+}
 
-/* WHATS */
-.whatsapp-fixo{position:fixed;bottom:30px;right:30px;background:#25d366;color:#fff;width:65px;height:65px;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:35px}
+.modal-content{
+background:#fff;
+max-width:500px;
+width:90%;
+padding:30px;
+border-radius:12px;
+position:relative
+}
+
+.close{
+position:absolute;
+top:15px;right:20px;
+font-size:22px;
+cursor:pointer
+}
+
+.package{
+border-bottom:1px solid #eee;
+padding:15px 0
+}
+
+footer{
+background:#000;
+color:#aaa;
+text-align:center;
+padding:40px 20px;
+border-top:4px solid var(--cor-dourado)
+}
 </style>
 </head>
 
@@ -95,69 +144,61 @@ box-shadow:var(--sombra-luxo)
 <header id="inicio">
 <h1>Jessica Oliveira</h1>
 <p>Massoterapia Premium & Bem-Estar</p>
-<button class="btn-pacotes" onclick="abrirPacotes()">Ver Preços</button>
 </header>
 
-<!-- CALCULADORA (mantida) -->
-<div class="main-container">
-<div class="grid-top" id="valores">
-<div class="card calc-box">
-<h3 style="color:var(--cor-dourado)">Taxa de Domicílio</h3>
-<input type="number" id="kmDistancia" placeholder="Distância em KM">
-<button class="btn-calc" onclick="calcular()">Calcular</button>
-<div id="resultado" class="res-area">
-<strong id="valorTaxa">R$ 0,00</strong>
+<div class="main-container" id="valores">
+<div class="grid-top">
+
+<div class="card">
+<h3>Sessões</h3>
+<p>* Atendimento personalizado conforme sua necessidade.</p>
+<button class="btn-precos" onclick="abrirModal()">Ver Preços</button>
 </div>
+
+<div class="card">
+<h3>Taxa de Domicílio</h3>
+<p>Até 5km gratuito</p>
 </div>
+
 </div>
 </div>
 
-<!-- MODAL PACOTES -->
-<div id="modalPacotes" class="modal">
+<!-- MODAL -->
+<div class="modal" id="modal">
 <div class="modal-content">
-<span class="close" onclick="fecharPacotes()">&times;</span>
-<h2>Pacotes de Massagem</h2>
+<span class="close" onclick="fecharModal()">&times;</span>
+<h3>Pacotes Disponíveis</h3>
 
-<h4>Massagem Relaxante Manual – R$ 110,00</h4>
-<p>4 sessões – R$ 380,00<br>8 sessões – R$ 680,00</p>
+<div class="package">
+<strong>Pacote Essencial</strong>
+<p>Ideal para manutenção do bem-estar</p>
+</div>
 
-<h4>Relaxante + Ventosas – R$ 120,00</h4>
-<p>4 sessões – R$ 400,00<br>8 sessões – R$ 720,00</p>
+<div class="package">
+<strong>Pacote Equilíbrio</strong>
+<p>Tratamento contínuo e relaxante</p>
+</div>
 
-<h4>Relaxante + Liberação Miofascial – R$ 110,00</h4>
-<p>4 sessões – R$ 380,00<br>8 sessões – R$ 680,00</p>
-
-<h4>Drenagem Linfática – R$ 120,00</h4>
-<p>4 sessões – R$ 380,00<br>8 sessões – R$ 680,00</p>
-
-<h4>Modeladora – R$ 130,00</h4>
-<p>4 sessões – R$ 420,00<br>8 sessões – R$ 760,00</p>
-
-<h4>Relaxante + Pedras Quentes – R$ 135,00</h4>
-<p>4 sessões – R$ 380,00<br>8 sessões – R$ 680,00</p>
-
-<h4>Massagem 4 em 1 – R$ 160,00</h4>
-<p>4 sessões – R$ 520,00<br>8 sessões – R$ 960,00</p>
+<div class="package">
+<strong>Pacote Premium</strong>
+<p>Experiência completa de cuidado corporal</p>
+</div>
 
 </div>
 </div>
 
-<a class="whatsapp-fixo" href="https://wa.me/5531993812617" target="_blank">
-<i class="fa-brands fa-whatsapp"></i>
-</a>
+<footer>
+<p><strong>JESSICA OLIVEIRA MASSOTERAPIA</strong></p>
+<p>Belo Horizonte - MG</p>
+</footer>
 
 <script>
-function calcular(){
-const km=document.getElementById('kmDistancia').value;
-const valor=document.getElementById('valorTaxa');
-const res=document.getElementById('resultado');
-let custo=0;
-if(km>5){custo=(km-5)*4.5}
-valor.innerText=custo.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
-res.style.display='block';
+function abrirModal(){
+document.getElementById("modal").style.display="flex"
 }
-function abrirPacotes(){document.getElementById('modalPacotes').style.display='block'}
-function fecharPacotes(){document.getElementById('modalPacotes').style.display='none'}
+function fecharModal(){
+document.getElementById("modal").style.display="none"
+}
 </script>
 
 </body>
