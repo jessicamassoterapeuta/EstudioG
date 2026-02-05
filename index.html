@@ -11,30 +11,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
 
 <style>
-:root {
-    --bg-body:#FAF9F6;
-    --cor-texto:#1a1a1a;
-    --cor-dourado:#B89E57;
-    --cor-dourado-escuro:#8F7838;
-    --sombra-luxo:0 15px 40px rgba(0,0,0,0.1);
-    --gradiente-gold:linear-gradient(135deg,#B89E57 0%,#8F7838 100%);
+:root{
+--bg-body:#FAF9F6;
+--cor-texto:#1a1a1a;
+--cor-dourado:#B89E57;
+--cor-dourado-escuro:#8F7838;
+--sombra-luxo:0 15px 40px rgba(0,0,0,.1);
+--gradiente-gold:linear-gradient(135deg,#B89E57 0%,#8F7838 100%);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
 body{background:var(--bg-body);color:var(--cor-texto);font-family:'Montserrat',sans-serif}
 
 /* MENU */
-nav{
-position:fixed;top:0;width:100%;z-index:1000;
-background:#fff;padding:15px 0;
-box-shadow:0 2px 15px rgba(0,0,0,.1)
-}
+nav{position:fixed;top:0;width:100%;z-index:1000;background:#fff;padding:15px 0;box-shadow:0 2px 15px rgba(0,0,0,.1)}
 nav ul{display:flex;justify-content:center;gap:30px;list-style:none}
-nav ul li a{
-color:#000;font-weight:800;
-text-transform:uppercase;
-letter-spacing:1.5px;
-font-size:.8rem;text-decoration:none}
+nav ul li a{color:#000;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:.8rem;text-decoration:none}
 
 /* HEADER */
 header{
@@ -45,152 +37,47 @@ justify-content:center;
 align-items:center;
 text-align:center;
 color:#fff;
-background:
-linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
-url('https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+url('https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg');
 background-size:cover;
 background-position:center;
 margin-top:50px;
-padding:20px;
 }
+header h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,8vw,4rem)}
+header p{letter-spacing:4px;text-transform:uppercase;color:var(--cor-dourado);font-weight:700}
 
-header h1{
-font-family:'Cormorant Garamond',serif;
-font-size:clamp(2.8rem,8vw,4.5rem);
-font-weight:700;
-letter-spacing:2px;
-color:#D6B76A;
-text-shadow:0 2px 8px rgba(0,0,0,.6);
-}
-
-header p{
-margin-top:10px;
-letter-spacing:4px;
-text-transform:uppercase;
-color:var(--cor-dourado);
-font-weight:700
-}
-
+/* BOTÃO PREÇOS */
 .btn-pacotes{
 margin-top:25px;
-padding:14px 30px;
-font-weight:800;
+padding:14px 35px;
 border:none;
 border-radius:30px;
+font-weight:800;
 background:var(--gradiente-gold);
 color:#fff;
 cursor:pointer;
-letter-spacing:1px;
 box-shadow:var(--sombra-luxo)
 }
-.btn-pacotes:hover{opacity:.9;transform:translateY(-2px)}
 
-/* CONTAINER */
-.main-container{
-max-width:1100px;
-margin:-50px auto 40px;
-padding:0 20px;
-position:relative;
-z-index:10
-}
+/* CONTAINER / CALC */
+.main-container{max-width:1100px;margin:-50px auto 40px;padding:0 20px}
 .grid-top{display:grid;grid-template-columns:1.2fr .8fr;gap:25px}
+.card{background:#fff;padding:35px;border-radius:12px;box-shadow:var(--sombra-luxo)}
 
-.card{
-background:#fff;
-padding:35px;
-border-radius:12px;
-box-shadow:var(--sombra-luxo)
-}
-.card h3{
-font-family:'Cormorant Garamond',serif;
-font-size:2.2rem;
-color:var(--cor-dourado-escuro);
-border-bottom:2px solid var(--cor-dourado);
-display:inline-block;
-margin-bottom:20px
-}
-
-.calc-box{
-background:#1a1a1a;
-color:#fff;
-border-left:5px solid var(--cor-dourado)
-}
-.calc-box input{
-width:100%;
-padding:15px;
-margin:15px 0;
-border-radius:8px;
-border:1px solid #444;
-background:#252525;
-color:#fff
-}
-.btn-calc{
-width:100%;
-padding:15px;
-border:none;
-border-radius:8px;
-font-weight:800;
-background:var(--gradiente-gold);
-color:#fff;
-cursor:pointer
-}
-
-.res-area{
-display:none;
-margin-top:20px;
-padding:15px;
-border:1px dashed var(--cor-dourado);
-border-radius:8px;
-text-align:center
-}
+.calc-box{background:#1a1a1a;color:#fff;border-left:5px solid var(--cor-dourado)}
+.calc-box input{width:100%;padding:15px;margin:15px 0;border-radius:8px;border:1px solid #444;background:#252525;color:#fff}
+.btn-calc{width:100%;padding:15px;border:none;border-radius:8px;font-weight:800;background:var(--gradiente-gold);color:#fff;cursor:pointer}
+.res-area{display:none;margin-top:20px;padding:15px;border:1px dashed var(--cor-dourado);border-radius:8px;text-align:center}
 
 /* MODAL */
-.modal{
-display:none;
-position:fixed;
-z-index:3000;
-top:0;left:0;
-width:100%;height:100%;
-background:rgba(0,0,0,.7)
-}
-.modal-content{
-background:#fff;
-max-width:600px;
-margin:8% auto;
-padding:30px;
-border-radius:15px;
-box-shadow:var(--sombra-luxo)
-}
-.modal-content h2{
-font-family:'Cormorant Garamond',serif;
-color:var(--cor-dourado-escuro);
-margin-bottom:20px
-}
-.modal-content h4{
-margin-top:18px;
-color:var(--cor-dourado-escuro)
-}
-.close{
-float:right;
-font-size:28px;
-cursor:pointer
-}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);z-index:3000}
+.modal-content{background:#fff;max-width:600px;margin:8% auto;padding:30px;border-radius:15px}
+.modal-content h2{font-family:'Cormorant Garamond',serif;color:var(--cor-dourado-escuro)}
+.modal-content h4{margin-top:15px;color:var(--cor-dourado-escuro)}
+.close{float:right;font-size:28px;cursor:pointer}
 
 /* WHATS */
-.whatsapp-fixo{
-position:fixed;
-bottom:30px;
-right:30px;
-background:#25d366;
-color:#fff;
-width:65px;height:65px;
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:35px;
-box-shadow:0 10px 20px rgba(0,0,0,.2)
-}
+.whatsapp-fixo{position:fixed;bottom:30px;right:30px;background:#25d366;color:#fff;width:65px;height:65px;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:35px}
 </style>
 </head>
 
@@ -211,6 +98,7 @@ box-shadow:0 10px 20px rgba(0,0,0,.2)
 <button class="btn-pacotes" onclick="abrirPacotes()">Ver Preços</button>
 </header>
 
+<!-- CALCULADORA (mantida) -->
 <div class="main-container">
 <div class="grid-top" id="valores">
 <div class="card calc-box">
@@ -224,33 +112,32 @@ box-shadow:0 10px 20px rgba(0,0,0,.2)
 </div>
 </div>
 
-<!-- MODAL DE PREÇOS (ATUALIZADO COMPLETO) -->
+<!-- MODAL PACOTES -->
 <div id="modalPacotes" class="modal">
 <div class="modal-content">
 <span class="close" onclick="fecharPacotes()">&times;</span>
 <h2>Pacotes de Massagem</h2>
 
 <h4>Massagem Relaxante Manual – R$ 110,00</h4>
-<p>Plano com 4 sessões – R$ 380,00<br>Plano com 8 sessões – R$ 680,00</p>
+<p>4 sessões – R$ 380,00<br>8 sessões – R$ 680,00</p>
 
-<h4>Massagem Relaxante + Ventosas – R$ 120,00</h4>
-<p>Plano com 4 sessões – R$ 400,00<br>Plano com 8 sessões – R$ 720,00</p>
+<h4>Relaxante + Ventosas – R$ 120,00</h4>
+<p>4 sessões – R$ 400,00<br>8 sessões – R$ 720,00</p>
 
-<h4>Massagem Relaxante + Liberação Miofascial – R$ 110,00</h4>
-<p>Plano com 4 sessões – R$ 380,00<br>Plano com 8 sessões – R$ 680,00</p>
+<h4>Relaxante + Liberação Miofascial – R$ 110,00</h4>
+<p>4 sessões – R$ 380,00<br>8 sessões – R$ 680,00</p>
 
 <h4>Drenagem Linfática – R$ 120,00</h4>
-<p>Plano com 4 sessões – R$ 380,00<br>Plano com 8 sessões – R$ 680,00</p>
+<p>4 sessões – R$ 380,00<br>8 sessões – R$ 680,00</p>
 
 <h4>Modeladora – R$ 130,00</h4>
-<p>Plano com 4 sessões – R$ 420,00<br>Plano com 8 sessões – R$ 760,00</p>
+<p>4 sessões – R$ 420,00<br>8 sessões – R$ 760,00</p>
 
-<h4>Massagem Relaxante + Pedras Quentes – R$ 135,00</h4>
-<p>Plano com 4 sessões – R$ 380,00<br>Plano com 8 sessões – R$ 680,00</p>
+<h4>Relaxante + Pedras Quentes – R$ 135,00</h4>
+<p>4 sessões – R$ 380,00<br>8 sessões – R$ 680,00</p>
 
 <h4>Massagem 4 em 1 – R$ 160,00</h4>
-<p>(Relaxante Manual + Liberação Miofascial + Ventosas + Pedras Quentes)</p>
-<p>Plano com 4 sessões – R$ 520,00<br>Plano com 8 sessões – R$ 960,00</p>
+<p>4 sessões – R$ 520,00<br>8 sessões – R$ 960,00</p>
 
 </div>
 </div>
@@ -262,21 +149,16 @@ box-shadow:0 10px 20px rgba(0,0,0,.2)
 <script>
 function calcular(){
 const km=document.getElementById('kmDistancia').value;
-const res=document.getElementById('resultado');
 const valor=document.getElementById('valorTaxa');
+const res=document.getElementById('resultado');
 let custo=0;
-if(km>2){custo=(km-2)*5.5}
+if(km>5){custo=(km-5)*4.5}
 valor.innerText=custo.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
 res.style.display='block';
 }
-
 function abrirPacotes(){document.getElementById('modalPacotes').style.display='block'}
 function fecharPacotes(){document.getElementById('modalPacotes').style.display='none'}
 </script>
 
 </body>
 </html>
-
-
-
-
