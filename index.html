@@ -11,13 +11,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
 
 <style>
-:root {
-    --bg-body:#FAF9F6;
-    --cor-texto:#1a1a1a;
-    --cor-dourado:#B89E57;
-    --cor-dourado-escuro:#8F7838;
-    --sombra-luxo:0 15px 40px rgba(0,0,0,0.1);
-    --gradiente-gold:linear-gradient(135deg,#B89E57 0%,#8F7838 100%);
+:root{
+--bg-body:#FAF9F6;
+--cor-texto:#1a1a1a;
+--cor-dourado:#B89E57;
+--cor-dourado-escuro:#8F7838;
+--sombra-luxo:0 15px 40px rgba(0,0,0,.1);
+--gradiente-gold:linear-gradient(135deg,#B89E57 0%,#8F7838 100%);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
@@ -34,9 +34,10 @@ nav ul li a{
 color:#000;font-weight:800;
 text-transform:uppercase;
 letter-spacing:1.5px;
-font-size:.8rem;text-decoration:none}
+font-size:.8rem;text-decoration:none
+}
 
-/* HEADER COM IMAGEM PERSONALIZADA */
+/* HEADER */
 header{
 height:60vh;
 display:flex;
@@ -46,18 +47,22 @@ align-items:center;
 text-align:center;
 color:#fff;
 background:
-linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
-url('banner-jessica.jpg');
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+url('https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg');
 background-size:cover;
 background-position:center;
 margin-top:50px;
 padding:20px
 }
+
 header h1{
 font-family:'Cormorant Garamond',serif;
-font-size:clamp(2.5rem,8vw,4rem);
-text-shadow:2px 2px 10px rgba(0,0,0,.5)
+font-size:clamp(3rem,8vw,4.5rem);
+letter-spacing:2px;
+color:var(--cor-dourado);
+text-shadow:0 4px 15px rgba(0,0,0,.6)
 }
+
 header p{
 margin-top:10px;
 letter-spacing:4px;
@@ -105,15 +110,6 @@ display:inline-block;
 margin-bottom:20px
 }
 
-.price-line{
-display:flex;
-justify-content:space-between;
-padding:15px 0;
-border-bottom:1px solid #f2f2f2;
-font-weight:700
-}
-.price-line span{color:var(--cor-dourado-escuro)}
-
 .calc-box{
 background:#1a1a1a;
 color:#fff;
@@ -159,8 +155,8 @@ background:rgba(0,0,0,.7)
 }
 .modal-content{
 background:#fff;
-max-width:600px;
-margin:8% auto;
+max-width:650px;
+margin:6% auto;
 padding:30px;
 border-radius:15px;
 box-shadow:var(--sombra-luxo)
@@ -171,7 +167,7 @@ color:var(--cor-dourado-escuro);
 margin-bottom:20px
 }
 .modal-content h4{
-margin-top:15px;
+margin-top:18px;
 color:var(--cor-dourado-escuro)
 }
 .close{
@@ -216,19 +212,11 @@ box-shadow:0 10px 20px rgba(0,0,0,.2)
 <header id="inicio">
 <h1>Jessica Oliveira</h1>
 <p>Massoterapia Premium & Bem-Estar</p>
-<button class="btn-pacotes" onclick="abrirPacotes()">Ver Pacotes</button>
+<button class="btn-pacotes" onclick="abrirPacotes()">Ver Preços</button>
 </header>
 
 <div class="main-container">
 <div class="grid-top" id="valores">
-
-<div class="card">
-<h3>Sessões</h3>
-<div class="price-line">Massagem Relaxante <span>R$ 100,00</span></div>
-<div class="price-line">Drenagem Linfática <span>R$ 120,00</span></div>
-<div class="price-line">Pedras Quentes <span>R$ 150,00</span></div>
-<div class="price-line">Liberação Miofascial <span>R$ 130,00</span></div>
-</div>
 
 <div class="card calc-box">
 <h3 style="color:var(--cor-dourado)">Taxa de Domicílio</h3>
@@ -245,22 +233,33 @@ box-shadow:0 10px 20px rgba(0,0,0,.2)
 <div id="modalPacotes" class="modal">
 <div class="modal-content">
 <span class="close" onclick="fecharPacotes()">&times;</span>
-<h2>Pacotes de Massagem</h2>
+<h2>Preços e Pacotes</h2>
 
-<h4>Relaxante Manual – R$ 110,00</h4>
-<p>4 sessões: R$ 380,00<br>8 sessões: R$ 680,00</p>
+<h4>Massagem Relaxante Manual – R$ 110,00</h4>
+<p>Plano com 4 sessões: R$ 380,00<br>Plano com 8 sessões: R$ 680,00</p>
 
-<h4>Relaxante + Ventosas – R$ 120,00</h4>
-<p>4 sessões: R$ 400,00<br>8 sessões: R$ 720,00</p>
+<h4>Massagem Relaxante + Ventosas – R$ 120,00</h4>
+<p>Plano com 4 sessões: R$ 400,00<br>Plano com 8 sessões: R$ 720,00</p>
+
+<h4>Massagem Relaxante + Liberação Miofascial – R$ 110,00</h4>
+<p>Plano com 4 sessões: R$ 380,00<br>Plano com 8 sessões: R$ 680,00</p>
 
 <h4>Drenagem Linfática – R$ 120,00</h4>
-<p>4 sessões: R$ 380,00<br>8 sessões: R$ 680,00</p>
+<p>Plano com 4 sessões: R$ 380,00<br>Plano com 8 sessões: R$ 680,00</p>
 
-<h4>Modeladora – R$ 130,00</h4>
-<p>4 sessões: R$ 420,00<br>8 sessões: R$ 760,00</p>
+<h4>Massagem Modeladora – R$ 130,00</h4>
+<p>Plano com 4 sessões: R$ 420,00<br>Plano com 8 sessões: R$ 760,00</p>
+
+<h4>Massagem Relaxante + Pedras Quentes – R$ 135,00</h4>
+<p>Plano com 4 sessões: R$ 380,00<br>Plano com 8 sessões: R$ 680,00</p>
 
 <h4>Massagem 4 em 1 – R$ 160,00</h4>
-<p>4 sessões: R$ 520,00<br>8 sessões: R$ 960,00</p>
+<p>
+Relaxante Manual + Liberação Miofascial + Ventosas + Pedras Quentes<br>
+Plano com 4 sessões: R$ 520,00<br>
+Plano com 8 sessões: R$ 960,00
+</p>
+
 </div>
 </div>
 
@@ -279,13 +278,15 @@ valor.innerText=custo.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
 res.style.display='block';
 }
 
-function abrirPacotes(){document.getElementById('modalPacotes').style.display='block'}
-function fecharPacotes(){document.getElementById('modalPacotes').style.display='none'}
+function abrirPacotes(){
+document.getElementById('modalPacotes').style.display='block'
+}
+function fecharPacotes(){
+document.getElementById('modalPacotes').style.display='none'
+}
 </script>
 
 </body>
 </html>
-
-
 
 
