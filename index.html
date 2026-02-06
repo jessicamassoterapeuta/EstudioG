@@ -14,6 +14,59 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
 
     <style>
+        /* MODAL PREÇOS */
+.modal-precos {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(4px);
+}
+
+.modal-conteudo {
+    background: #fff;
+    width: 90%;
+    max-width: 600px;
+    margin: 8% auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--sombra-luxo);
+    position: relative;
+    animation: aparecer 0.3s ease;
+}
+
+.modal-conteudo h2 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--cor-dourado-escuro);
+    margin-bottom: 20px;
+}
+
+.modal-lista h4 {
+    margin-top: 20px;
+    color: var(--cor-dourado-escuro);
+}
+
+.modal-lista p {
+    margin-left: 10px;
+    font-size: 0.95rem;
+}
+
+.fechar {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
         :root {
             --bg-body: #FAF9F6;
             --cor-texto: #1a1a1a;
@@ -138,6 +191,7 @@
             <li><a href="#valores">Valores</a></li>
             <li><a href="#sobre">Sobre</a></li>
             <li><a href="#materiais">Estrutura</a></li>
+            <li><a href="#" onclick="abrirPrecos()">Preços</a></li>
         </ul>
     </nav>
 
@@ -212,6 +266,54 @@
         <p>Belo Horizonte - MG | Rua Mármore, 753 (Sex e Sáb)</p>
         <p style="margin-top: 20px; font-size: 0.8rem;">&copy; 2026 - Todos os direitos reservados.</p>
     </footer>
+    <!-- MODAL PREÇOS -->
+<div id="modalPrecos" class="modal-precos">
+    <div class="modal-conteudo">
+        <span class="fechar" onclick="fecharPrecos()">&times;</span>
+
+        <h2>Preços Detalhados</h2>
+
+        <div class="modal-lista">
+
+            <h4>Massagem Relaxante Manual</h4>
+            <p>Avulso: R$110</p>
+            <p>Plano 4 sessões: R$380</p>
+            <p>Plano 8 sessões: R$680</p>
+
+            <h4>Massagem Relaxante + Ventosas</h4>
+            <p>Avulso: R$120</p>
+            <p>Plano 4 sessões: R$400</p>
+            <p>Plano 8 sessões: R$720</p>
+
+            <h4>Massagem Relaxante + Liberação Miofascial</h4>
+            <p>Avulso: R$110</p>
+            <p>Plano 4 sessões: R$380</p>
+            <p>Plano 8 sessões: R$680</p>
+
+            <h4>Massagem 4 em 1</h4>
+            <p>(Relaxante + Liberação + Ventosa + Pedras Quentes)</p>
+            <p>Avulso: R$160</p>
+            <p>Plano 4 sessões: R$520</p>
+            <p>Plano 8 sessões: R$960</p>
+
+            <h4>Drenagem Linfática</h4>
+            <p>Avulso: R$120</p>
+            <p>Plano 4 sessões: R$380</p>
+            <p>Plano 8 sessões: R$680</p>
+
+            <h4>Modeladora</h4>
+            <p>Avulso: R$130</p>
+            <p>Plano 4 sessões: R$420</p>
+            <p>Plano 8 sessões: R$760</p>
+
+            <h4>Relaxante + Pedras Quentes</h4>
+            <p>Avulso: R$135</p>
+            <p>Plano 4 sessões: R$380</p>
+            <p>Plano 8 sessões: R$680</p>
+
+        </div>
+    </div>
+</div>
 
     <script>
         function calcular() {
@@ -233,7 +335,24 @@
             resArea.style.display = 'block';
         }
     </script>
+    <script>
+function abrirPrecos() {
+    document.getElementById("modalPrecos").style.display = "block";
+}
+
+function fecharPrecos() {
+    document.getElementById("modalPrecos").style.display = "none";
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById("modalPrecos");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+    </script>
 
 </body>
 </html>
+
 
