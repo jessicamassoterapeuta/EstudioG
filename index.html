@@ -189,16 +189,16 @@
     <nav>
         <ul>
             <li><a href="#inicio">Início</a></li>
-            <li><a href="#valores">Valores</a></li>
+            <li><a href="#" onclick="abrirPrecos()">Preços</a></li>
             <li><a href="#sobre">Sobre</a></li>
             <li><a href="#materiais">Estrutura</a></li>
-            <li><a href="#" onclick="abrirPrecos()">Preços</a></li>
+            
         </ul>
     </nav>
 
     <header id="inicio">
                 <h1>Jessica Oliveira</h1>
-        <p>Massoterapia</p>
+        <p>Massoterapeuta</p>
     </header>
 
     <div class="main-container">
@@ -206,7 +206,7 @@
             
             <div class="card calc-box">
                 <h3 style="color: var(--cor-dourado); border-bottom-color: #444;">Taxa de Domicílio</h3>
-                <p style="font-size: 0.9rem; margin-bottom: 10px;">Atendemos em sua casa com total conforto. <br><strong>Até 5km: Grátis!</strong></p>
+                <p style="font-size: 0.9rem; margin-bottom: 10px;">Atendemos em sua casa com total conforto. <br><strong>Até 2km: Grátis!</strong></p>
                 <input type="number" id="kmDistancia" placeholder="Distância em KM">
                 <button class="btn-calc" onclick="calcular()">Calcular Agora</button>
                 <div id="resultado" class="res-area">
@@ -320,8 +320,8 @@
             }
 
             let custo = 0;
-            if (km > 5) {
-                custo = (km - 5) * 4.50;
+            if (km > 2) {
+                custo = (km - 2) * 5.50;
             }
 
             valorTaxa.innerText = custo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
@@ -347,6 +347,7 @@ window.onclick = function(event) {
 
 </body>
 </html>
+
 
 
 
