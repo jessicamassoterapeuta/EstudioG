@@ -14,6 +14,58 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
 
     <style>
+        /* --- BOTÕES DO HEADER --- */
+.header-botoes {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 260px;
+}
+
+.btn-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px;
+    border-radius: 30px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+/* PREÇOS */
+.btn-precos {
+    background: var(--gradiente-gold);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(184,158,87,0.4);
+}
+
+/* WHATSAPP */
+.btn-whats {
+    background: linear-gradient(135deg, #25d366, #1ebe5d);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(37,211,102,0.4);
+}
+
+/* INSTAGRAM */
+.btn-insta {
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(253,29,29,0.4);
+}
+
+.btn-header:hover {
+    transform: translateY(-3px);
+    opacity: 0.95;
+}
+
         /* MODAL PREÇOS */
 .modal-precos {
     display: none;
@@ -203,6 +255,24 @@
     <header id="inicio">
                 <h1>Jessica Oliveira</h1>
         <p>Massoterapeuta</p>
+        <div class="header-botoes">
+    <button class="btn-header btn-precos" onclick="abrirPrecos()">
+        <i class="fa-solid fa-tags"></i> Ver Preços
+    </button>
+
+    <a href="https://wa.me/5531993812617?text=Oi Jessica! Gostaria de agendar um horário."
+       target="_blank"
+       class="btn-header btn-whats">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+    </a>
+
+    <a href="https://www.instagram.com/SEU_INSTAGRAM_AQUI"
+       target="_blank"
+       class="btn-header btn-insta">
+        <i class="fa-brands fa-instagram"></i> Instagram
+    </a>
+</div>
+
     </header>
 
     <div class="main-container">
@@ -354,6 +424,7 @@ window.onclick = function(event) {
 
 </body>
 </html>
+
 
 
 
