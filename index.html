@@ -240,6 +240,100 @@
             nav ul li a { font-size: 0.7rem; }
             .main-container { margin-top: -30px; }
         }
+        /* =========================
+   TEMA DIA DAS MÃES
+========================= */
+
+body {
+    background: linear-gradient(to bottom, #fffafc, #fdf6f8);
+}
+
+/* Banner */
+.banner-maes{
+    background: linear-gradient(135deg, #d48ca3, #b76e79);
+    padding: 18px 25px;
+    border-radius: 18px;
+    margin-top: 25px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(183,110,121,0.35);
+    animation: brilhoBanner 3s infinite alternate;
+}
+
+.banner-maes span{
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: white;
+    margin-bottom: 6px;
+}
+
+.banner-maes p{
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+/* Botões em tom rosé */
+.btn-precos{
+    background: linear-gradient(135deg, #f1b5c9, #d48ca3);
+}
+
+.btn-whats{
+    background: linear-gradient(135deg, #d48ca3, #b76e79);
+}
+
+.btn-insta{
+    background: linear-gradient(135deg, #b76e79, #8e4d5d);
+}
+
+/* Destaque nos títulos */
+.about-text h2,
+.materials h2,
+.card h3{
+    color: #b76e79 !important;
+}
+
+/* Header mais delicado */
+header{
+    position: relative;
+    overflow: hidden;
+}
+
+header::before{
+    content: "🌸";
+    position: absolute;
+    font-size: 120px;
+    opacity: 0.08;
+    left: 5%;
+    top: 10%;
+}
+
+header::after{
+    content: "💖";
+    position: absolute;
+    font-size: 100px;
+    opacity: 0.08;
+    right: 8%;
+    bottom: 10%;
+}
+
+/* WhatsApp mais elegante */
+.whatsapp-fixo{
+    box-shadow: 0 10px 25px rgba(183,110,121,0.45);
+}
+
+/* Animação */
+@keyframes brilhoBanner{
+    from{
+        transform: translateY(0px);
+        box-shadow: 0 10px 25px rgba(183,110,121,0.35);
+    }
+
+    to{
+        transform: translateY(-2px);
+        box-shadow: 0 15px 35px rgba(183,110,121,0.55);
+    }
+}
     </style>
 </head>
 <body>
@@ -255,6 +349,11 @@
     </nav>
 
     <header id="inicio">
+        <!-- FAIXA DIA DAS MÃES -->
+<div class="banner-maes">
+    <span>🌸 Especial Dia das Mães 🌸</span>
+    <p>Presenteie quem sempre cuidou de você com um momento de relaxamento e carinho.</p>
+</div>
                 <h1>Jessica Oliveira</h1>
         <p>Massoterapeuta</p>
         <div class="header-botoes">
