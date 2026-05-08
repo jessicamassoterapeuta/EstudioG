@@ -232,96 +232,167 @@
         .whatsapp-fixo:hover { transform: scale(1.1); }
 
         footer { background: #000; color: #888; text-align: center; padding: 50px 20px; border-top: 4px solid var(--cor-dourado); }
+@media (max-width: 850px) {
 
-        @media (max-width: 850px) {
-            .grid-top, .about-section { grid-template-columns: 1fr; }
-            header { height: 50vh; }
-            nav ul { gap: 15px; }
-            nav ul li a { font-size: 0.7rem; }
-            .main-container { margin-top: -30px; }
-        }
-        /* =========================
-   TEMA DIA DAS MÃES
-========================= */
+    /* MENU */
+    nav {
+        padding: 12px 5px;
+    }
 
-body {
-    background: linear-gradient(to bottom, #fffafc, #fdf6f8);
+    nav ul {
+        gap: 10px;
+        flex-wrap: wrap;
+        padding: 0 10px;
+    }
+
+    nav ul li a {
+        font-size: 0.65rem;
+        letter-spacing: 1px;
+    }
+
+    /* HEADER */
+    header {
+        height: auto;
+        min-height: 70vh;
+        padding: 120px 20px 60px;
+        margin-top: 45px;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+        line-height: 1.1;
+    }
+
+    header p {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+        padding: 0 10px;
+    }
+
+    /* BANNER DIA DAS MÃES */
+    .banner-maes {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .banner-maes span {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    .banner-maes p {
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+
+    /* BOTÕES HEADER */
+    .header-botoes {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .btn-header {
+        font-size: 0.75rem;
+        padding: 13px;
+    }
+
+    /* GRID */
+    .grid-top,
+    .about-section {
+        grid-template-columns: 1fr;
+    }
+
+    .main-container {
+        margin-top: -20px;
+        padding: 0 15px;
+    }
+
+    .card {
+        padding: 25px 20px;
+    }
+
+    .card h3 {
+        font-size: 1.8rem;
+    }
+
+    /* SOBRE */
+    .about-section {
+        padding: 60px 15px;
+        gap: 30px;
+    }
+
+    .about-text h2 {
+        font-size: 2.2rem;
+        text-align: center;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+        text-align: left;
+    }
+
+    .about-img img {
+        box-shadow: 10px 10px 0 var(--cor-dourado-escuro);
+    }
+
+    /* ESTRUTURA */
+    .materials {
+        padding: 60px 15px;
+    }
+
+    .materials h2 {
+        font-size: 2.2rem !important;
+        line-height: 1.2;
+    }
+
+    .mat-grid {
+        gap: 20px;
+    }
+
+    .mat-card {
+        padding: 12px;
+    }
+
+    /* MODAL */
+    .modal-conteudo {
+        width: 95%;
+        padding: 25px 18px;
+        margin: 15% auto;
+    }
+
+    .modal-conteudo h2 {
+        font-size: 2rem;
+    }
+
+    .modal-lista p {
+        font-size: 0.9rem;
+    }
+
+    /* WHATSAPP */
+    .whatsapp-fixo {
+        width: 58px;
+        height: 58px;
+        font-size: 30px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    /* EFEITOS DECORATIVOS */
+    header::before,
+    header::after {
+        font-size: 70px;
+    }
+
+    /* FOOTER */
+    footer {
+        padding: 40px 15px;
+    }
+
+    footer p {
+        font-size: 0.85rem;
+    }
 }
-
-/* Banner */
-.banner-maes{
-    background: linear-gradient(135deg, #d48ca3, #b76e79);
-    padding: 18px 25px;
-    border-radius: 18px;
-    margin-top: 25px;
-    text-align: center;
-    box-shadow: 0 10px 25px rgba(183,110,121,0.35);
-    animation: brilhoBanner 3s infinite alternate;
-}
-
-.banner-maes span{
-    display: block;
-    font-size: 1.3rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-    color: white;
-    margin-bottom: 6px;
-}
-
-.banner-maes p{
-    color: #fff;
-    font-size: 0.95rem;
-}
-
-/* Botões em tom rosé */
-.btn-precos{
-    background: linear-gradient(135deg, #f1b5c9, #d48ca3);
-}
-
-.btn-whats{
-    background: linear-gradient(135deg, #d48ca3, #b76e79);
-}
-
-.btn-insta{
-    background: linear-gradient(135deg, #b76e79, #8e4d5d);
-}
-
-/* Destaque nos títulos */
-.about-text h2,
-.materials h2,
-.card h3{
-    color: #b76e79 !important;
-}
-
-/* Header mais delicado */
-header{
-    position: relative;
-    overflow: hidden;
-}
-
-header::before{
-    content: "🌸";
-    position: absolute;
-    font-size: 120px;
-    opacity: 0.08;
-    left: 5%;
-    top: 10%;
-}
-
-header::after{
-    content: "💖";
-    position: absolute;
-    font-size: 100px;
-    opacity: 0.08;
-    right: 8%;
-    bottom: 10%;
-}
-
-/* WhatsApp mais elegante */
-.whatsapp-fixo{
-    box-shadow: 0 10px 25px rgba(183,110,121,0.45);
-}
-
+        
 /* Animação */
 @keyframes brilhoBanner{
     from{
@@ -333,6 +404,16 @@ header::after{
         transform: translateY(-2px);
         box-shadow: 0 15px 35px rgba(183,110,121,0.55);
     }
+}
+        img,
+video,
+iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    overflow-x: hidden;
 }
     </style>
 </head>
